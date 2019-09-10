@@ -147,7 +147,7 @@ module.exports{
                     "unit": "teaspoons",
                 }
             ],
-        }, 
+        },
         {
             "title": "Shrimp Risotto with Baby Spinach and Basil",
             "healthScore": 40.0,
@@ -288,7 +288,7 @@ module.exports{
                     "unit": "cups",
                 },
             ]
-        }, 
+        },
         {
             "title": "Date night mushroom pasta with goats cheese",
             "healthScore": 27.0,
@@ -360,7 +360,7 @@ module.exports{
                     "unit": "cups",
                 },
             ]
-        }, 
+        },
         {
             "title": "Spinach, prosciutto and butternut squash pizza",
             "healthScore": 19.0 ,
@@ -412,7 +412,7 @@ module.exports{
                     "unit": "",
                 },
             ]
-        }, 
+        },
         {
             "title": "Roasted butternut squash salad",
             "healthScore": 100.0 ,
@@ -495,6 +495,6 @@ module.exports{
                     "unit": "cups",
                 },
             ]
-        } 
+        }
     ]
 }
