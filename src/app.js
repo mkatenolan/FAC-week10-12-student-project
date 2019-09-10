@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-// const favicon = require('serve-favicon');
+const favicon = require('serve-favicon');
 const exphbs = require('express-handlebars');
 const helpers = require('./views/helpers/index');
 const controllers = require('./controllers/index');
@@ -21,6 +21,6 @@ app.engine(
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, '..', 'public')));
-// app.use(controllers);
+app.use(controllers);
 
 module.exports = app;
