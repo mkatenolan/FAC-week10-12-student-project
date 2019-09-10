@@ -8,8 +8,8 @@ DROP TABLE IF EXISTS ingredients CASCADE;
 
 CREATE TABLE plans (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(200) NOT NULL,
-  days INTEGER NOT NULL
+  plan_name VARCHAR(200) NOT NULL,
+  plan_days INTEGER NOT NULL
 );
 
 CREATE TABLE junction_plans_recipes (
@@ -20,7 +20,7 @@ CREATE TABLE junction_plans_recipes (
 
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(50) NOT NULL UNIQUE,
+  recipe_name VARCHAR(50) NOT NULL UNIQUE,
   instructions TEXT NOT NULL,
   cooking_time INTEGER,
   health_score INTEGER
@@ -34,10 +34,10 @@ CREATE TABLE junction_recipes_ingredients (
 
 CREATE TABLE ingredients (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(200) NOT NULL UNIQUE
+  ingredient_name VARCHAR(200) NOT NULL UNIQUE
 );
 
-INSERT INTO plans (name, days) VALUES
+INSERT INTO plans (plan_name, plan_days) VALUES
 (
   'some plan name',
   'days integer'
@@ -57,7 +57,7 @@ INSERT INTO junction_plans_recipes (plan_id, recipe_id) VALUES
   'recipe foreign key'
 );
 
-INSERT INTO recipes (name, instructions, cooking_time, health_score) VALUES
+INSERT INTO recipes (recipe_name, instructions, cooking_time, health_score) VALUES
 (
   'plan name',
   'cooking instruction',
@@ -81,7 +81,7 @@ INSERT INTO junction_recipes_ingredients (recipe_id, ingredient_id) VALUES
   'ingredient foreign key'
 );
 
-INSERT INTO ingredients (name) VALUES
+INSERT INTO ingredients (ingredient_name) VALUES
 (
   'ingredient name'
 ),
