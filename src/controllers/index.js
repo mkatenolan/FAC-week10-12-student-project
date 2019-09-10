@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const home = require('./home');
-const newPlan = require('./newPlan');
+const newPlan = require('./newplan');
 const error = require('./error');
 
 router.get('/', home.get);
