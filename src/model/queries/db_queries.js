@@ -58,7 +58,7 @@ const getSimilarRecipes = (firstPick, secondPick) => {
   );
 };
 
-// query for adding a new plans
+// query for adding a new plan - title and days - into 'plans' table
 
 const addNewPlan = (planName, planDays) => {
   return connection.query(
@@ -66,4 +66,10 @@ const addNewPlan = (planName, planDays) => {
   );
 };
 
-const add
+// query for adding a recipe to a plan
+
+const addRecipeToPlan = (planId, recipeId) => {
+  return connection.query(
+    "INSERT INTO junction_plans_recipes (plan_id, recipe_id) VALUES ({planId}, {recipeId})"
+  );
+};
