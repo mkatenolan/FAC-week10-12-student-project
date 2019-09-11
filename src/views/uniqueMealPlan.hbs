@@ -1,0 +1,29 @@
+<section>
+    <h1 class="unique-meal-plan__header"> {{this}}</h1>
+    <h2 class="unique-meal-plan__days"> {{this}}</h2>
+
+    <form action="/shopping-list" class="unique-meal-plan__form">
+        <input type="submit" value="Shopping list" class="unique-meal-plan__shopping-list">
+        <input type="submit" value="Email" formaction="/sendEmail" class="unique-meal-plan__email">
+    </form>
+
+    {{#each meal-plan-recipe}}
+    <img src="{{this.img}}">
+    <title class="recipe-title__{{this}}"> {{this.title}}</title>
+
+    <button class="recipe-info__{{this}}"> i </button>
+    <span>
+        Time: {{this.time}}
+    </span>
+
+    {{>individual-recipe}}
+    {{/each}}
+
+
+
+    <form action="/mealplans" class="unique-meal-plan__form">
+        <input type="submit" value="View all meal plans" class="unique-meal-plan__form__back">
+        <input type="submit" value="+" formaction="/newplan" class="unique-meal-plan__form__new-plan">
+    </form>
+
+</section>
