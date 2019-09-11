@@ -57,3 +57,13 @@ const getSimilarRecipes = (firstPick, secondPick) => {
     "SELECT recipe_name, cooking_time, health_score FROM recipes WHERE id IN (SELECT DISTINCT recipe_id FROM junction_recipes_ingredients WHERE ingredient_id IN (SELECT ingredient_id FROM junction_recipes_ingredients WHERE recipe_id = {firstPick} OR recipe_id = {secondPick}));"
   );
 };
+
+// query for adding a new plans
+
+const addNewPlan = (planName, planDays) => {
+  return connection.query(
+    "INSERT INTO plans (id, plan_name, plan_days) VALUES (id, planName, planDays);"
+  );
+};
+
+const add
