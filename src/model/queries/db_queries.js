@@ -42,4 +42,18 @@ const getShoppingList = planId => {
   );
 };
 
-// 
+// query for getting all recipes in random order (only five to be displayed initially)
+
+const getRandomRecipes => {
+  return connection.query(
+    "SELECT recipe_name, cooking_time FROM recipes ORDER BY RANDOM();"
+  );
+};
+
+// query for getting additional suggestions with shared getIngredients
+
+const getSimilarRecipes = (firstPick, secondPick) => {
+  return connection.query(
+    "SELECT recipe_name, cooking_time, health_score FROM recipes WHERE id IN (SELECT DISTINCT recipe_id FROM junction_recipes_ingredients WHERE ingredient_id IN (SELECT ingredient_id FROM junction_recipes_ingredients WHERE recipe_id = {firstPick} OR recipe_id = {secondPick}));"
+  );
+};
