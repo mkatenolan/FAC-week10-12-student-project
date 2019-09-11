@@ -6,15 +6,16 @@ const getAllPlans = () => {
   return connection.query('SELECT * FROM plans;');
 };
 
-
 //query for disaplying single plan
 
-const getSinglePlan = (plan_id) => {
-  let data = {};
+const getSinglePlan = (planId) => {
+ return connection.query('SELECT * FROM plans WHERE id = planId;');
+};
 
- data.name = connection.query('SELECT plan_name FROM plans WHERE id = plan_id;');
- data.days = connection.query('SELECT plan_days FROM plans WHERE id = plan_id;');
- data.time =
+// query for displaying individual recipe info on meal plans page
 
- return data;
-}
+const getRecipe = (planId) => {
+  return connection.query('SELECT * FROM recipes INNER JOIN junction_plans_recipes ON recipes.id = junction_plans_recipes.recipe_id WHERE plan_id = planId;')
+};
+
+//query for getting ingredients for individual recipes
