@@ -14,6 +14,7 @@ router.get("/newplan", routes.getNewPlan);
 router.get("/mealplans", routes.getMealPlans);
 router.get("/newplan-additional-choices", routes.getAdditionalChoices);
 router.get("/unique-meal-plan", routes.uniqueMealPlan);
+router.get("/shopping-list", routes.shoppingList);
 
 router.use(error.client);
 router.use(error.server);

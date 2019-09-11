@@ -1,0 +1,25 @@
+<section>
+    <h1 class="shopping-list__header">Shopping List</h1>
+    <h2> {{unique-recipe.title}}</h2>
+    <h2> {{unique-recipe.days}}</h2>
+
+
+    <ul>
+        {{#each unique-recipe.common-ingredient}}
+        <li> {{ unique-recipe.common-ingredient }} </li>
+        {{/each}}
+    </ul>
+
+    <ul>
+        {{#each unique-recipe.ingredient}}
+        <li> {{ unique-recipe.ingredient }} </li>
+        {{/each}}
+    </ul>
+
+
+    <form class="shopping-list__form" action="/mealplans">
+        <input aria-label="Back to see all recipes" type="submit" value="Back" class="shopping-list__form__back">
+    </form>
+
+
+</section>

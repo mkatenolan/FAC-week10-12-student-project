@@ -15,3 +15,7 @@ exports.getAdditionalChoices = (req, res) => {
 exports.uniqueMealPlan = (req, res) => {
   res.render("uniqueMealPlan");
 };
+
+exports.shoppingList = (req, res) => {
+  res.render("shoppingList");
+};
