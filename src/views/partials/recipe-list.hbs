@@ -1,0 +1,11 @@
+
+<section>
+
+{{#each recipe}}
+<img src="{{this.img}}">
+<title class="recipe-title__{{this}}"> {{this.title}}</title>
+<button class="recipe-info__{{this}}"> i </button>
+<input class="recipe-selected__{{this}}" type="checkbox" value="checked">
+{{/each}}
+
+</section>
