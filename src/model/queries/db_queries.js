@@ -9,6 +9,12 @@ const getAllPlans = () => {
 
 //query for disaplying single plan
 
-const getSinglePlan = () => {
-  return connection.query('')
+const getSinglePlan = (plan_id) => {
+  let data = {};
+
+ data.name = connection.query('SELECT plan_name FROM plans WHERE id = plan_id;');
+ data.days = connection.query('SELECT plan_days FROM plans WHERE id = plan_id;');
+ data.time =
+
+ return data;
 }
