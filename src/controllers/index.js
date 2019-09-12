@@ -7,14 +7,16 @@ const error = require("./error");
 // const mealPlans = require('./mealplans');
 // const additionalChoices = require('./additional-choices');
 const routes = require("./routes.js");
-console.log("this is the routes object", routes);
+const queries = require("../model/queries/db_queries");
+
+console.log(queries.getRandomRecipes());
 
 router.get("/", home.get);
 router.get("/newplan", routes.getNewPlan);
 router.get("/mealplans", routes.getMealPlans);
 router.get("/newplan-additional-choices", routes.getAdditionalChoices);
-router.get("/unique-meal-plan", routes.uniqueMealPlan);
-router.get("/shopping-list", routes.shoppingList);
+router.get("/unique-meal-plan/:id/", routes.uniqueMealPlan);
+router.get("/shopping-list/:id/", routes.shoppingList);
 
 router.use(error.client);
 router.use(error.server);
