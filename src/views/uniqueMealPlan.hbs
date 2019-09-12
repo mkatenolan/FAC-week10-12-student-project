@@ -14,10 +14,16 @@
     <img src="{{this.img}}">
     <h1 class="recipe-title__{{this}}"> {{this.recipe_name}}</h1>
 
-    <button class="recipe-info__{{this}}"> i </button>
     <span>
         Time: {{this.cooking_time}}
         Health score: {{this.health_score}}
+    </span>
+
+    <button class="recipe-info__{{this}}">Info</button>
+
+    <span>
+      <!-- {{this.recipe.ingredients}} -->
+      {{this.instructions}}
     </span>
 
     {{>individual-recipe}}
