@@ -4,10 +4,14 @@ const queries = require("../model/queries/db_queries");
 console.log(queries.getRandomRecipes());
 
 exports.getNewPlan = (req, res) => {
+  res.render("newPlan");
+};
+
+exports.getMealPlans = (req, res) => {
   queries
-    .getRandomRecipes()
+    .getAllPlans()
     .then(result => {
-      res.render("newPlan", { recipe: result.rows });
+      res.render("mealplans", { mealPlan: result.rows });
     })
     .catch(err => {
       res.render("error", {
@@ -15,10 +19,6 @@ exports.getNewPlan = (req, res) => {
         errorMessage: "QUERY ERROR"
       });
     });
-};
-
-exports.getMealPlans = (req, res) => {
-  res.render("mealplans");
 };
 
 exports.getAdditionalChoices = (req, res) => {
