@@ -6,7 +6,7 @@
     <a href="/shopping-list/{{this.id}}"> Shopping List </a>
 
     <form action="/shopping-list" class="unique-meal-plan__form">
-        <input type="submit" value="Shopping list" class="unique-meal-plan__shopping-list">
+        <!-- <input type="submit" value="Shopping list" class="unique-meal-plan__shopping-list"> -->
         <input type="submit" value="Email" formaction="/sendEmail" class="unique-meal-plan__email">
     </form>
 
@@ -17,6 +17,7 @@
     <button class="recipe-info__{{this}}"> i </button>
     <span>
         Time: {{this.cooking_time}}
+        Health score: {{this.health_score}}
     </span>
 
     {{>individual-recipe}}
