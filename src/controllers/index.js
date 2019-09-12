@@ -2,17 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const home = require("./home");
-// const newPlan = require('./newplan');
 const error = require("./error");
-// const mealPlans = require('./mealplans');
-// const additionalChoices = require('./additional-choices');
 const routes = require("./routes.js");
 
-const queries = require("../model/queries/db_queries");
-
-
-router.get("/", home.get);
-// router.get("/mockdata", mockdata.get);
+router.get("/", routes.getHome);
 
 router.get("/newplan", routes.getNewPlan);
 router.get("/mealplans", routes.getMealPlans);
