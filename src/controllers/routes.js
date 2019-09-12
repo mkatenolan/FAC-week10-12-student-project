@@ -1,7 +1,7 @@
 //Routes to render each additional page
 
 const queries = require("../model/queries/db_queries");
-console.log(queries.getRandomRecipes());
+const parse = require("url-parse")
 
 exports.getNewPlan = (req, res) => {
   res.render("newPlan");
@@ -26,7 +26,17 @@ exports.getAdditionalChoices = (req, res) => {
 };
 
 exports.uniqueMealPlan = (req, res) => {
-  res.render("uniqueMealPlan");
+  queries.getSinglePlan(req.params.id)
+  .then(result =>
+    res.render("uniqueMealPlan", {header: result.rows[0]})
+  )
+  .catch(err => {
+    res.render("error", {
+      statusCode: 500,
+      errorMessage: "QUERY ERROR"
+    });
+  });
+
 };
 
 exports.shoppingList = (req, res) => {
