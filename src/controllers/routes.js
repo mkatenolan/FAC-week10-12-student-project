@@ -1,6 +1,7 @@
 //Routes to render each additional page
 const mockdata = require('./../model/data/mockdata');
 
+
 exports.getNewPlan = (req, res) => {
   res.render("newPlan", {recipes: mockdata});
 };
