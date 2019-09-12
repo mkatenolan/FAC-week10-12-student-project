@@ -4,6 +4,16 @@
 
   <input type="text" name="search-meal-plans" class="meal-plans__search">
 
+
+  {{#each mealPlan}}
+
+  <h1 class="meal-plan__header__{{this.plan_name}}">{{this.plan_name}}</h1>
+  <p class="meal-plan__days__{{this.plan_name}}">{{this.plan_days}} day plan</p>
+  <a href="/unique-meal-plan/{{this.id}}">View plan</a>
+    <!-- <input type="submit" value="View plan">
+  </form> -->
+  {{/each}}
+
   <form action="/newplan" class="meal-plans__form">
     <input type="submit" value="New plan" class="meal-plan__new-plan">
   </form>
