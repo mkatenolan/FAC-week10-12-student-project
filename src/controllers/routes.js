@@ -1,7 +1,20 @@
 //Routes to render each additional page
 
+const queries = require("../model/queries/db_queries");
+console.log(queries.getRandomRecipes());
+
 exports.getNewPlan = (req, res) => {
-  res.render("newPlan");
+  queries
+    .getRandomRecipes()
+    .then(result => {
+      res.render("newPlan", { recipe: result.rows });
+    })
+    .catch(err => {
+      res.render("error", {
+        statusCode: 500,
+        errorMessage: "QUERY ERROR"
+      });
+    });
 };
 
 exports.getMealPlans = (req, res) => {

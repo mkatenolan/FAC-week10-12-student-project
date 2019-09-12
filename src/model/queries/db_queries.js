@@ -23,7 +23,9 @@ const getRecipes = planId => {
 // Query for displaying recipe info on single recipe page
 
 const getSingleRecipe = recipeId => {
-  return connection.query(`SELECT * FROM recipes WHERE recipe_id = {recipeId};`);
+  return connection.query(
+    `SELECT * FROM recipes WHERE recipe_id = {recipeId};`
+  );
 };
 
 // Query for getting ingredients for individual recipes
@@ -44,7 +46,7 @@ const getShoppingList = planId => {
 
 // Query for getting all recipes in random order (only five to be displayed initially)
 
-const getRandomRecipes => {
+const getRandomRecipes = () => {
   return connection.query(
     `SELECT recipe_name, cooking_time FROM recipes ORDER BY RANDOM();`
   );
@@ -72,4 +74,17 @@ const addRecipeToPlan = (planId, recipeId) => {
   return connection.query(
     `INSERT INTO junction_plans_recipes (plan_id, recipe_id) VALUES ({planId}, {recipeId})`
   );
+};
+
+module.exports = {
+  getAllPlans,
+  getSinglePlan,
+  getRecipes,
+  getSingleRecipe,
+  getIngredients,
+  getShoppingList,
+  getRandomRecipes,
+  getSimilarRecipes,
+  addNewPlan,
+  addRecipeToPlan
 };

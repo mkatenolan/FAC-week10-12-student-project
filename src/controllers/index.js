@@ -7,7 +7,9 @@ const error = require("./error");
 // const mealPlans = require('./mealplans');
 // const additionalChoices = require('./additional-choices');
 const routes = require("./routes.js");
-console.log("this is the routes object", routes);
+const queries = require("../model/queries/db_queries");
+
+console.log(queries.getRandomRecipes());
 
 router.get("/", home.get);
 router.get("/newplan", routes.getNewPlan);
