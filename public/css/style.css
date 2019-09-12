@@ -6,11 +6,14 @@ body{
 }
 
 .onboarding__image{
-  background-image: url();
-  background-position: center;
+  height: 25vh;
+  background-image:url('../assets/onboarding-image.jpg');
+  background-size: 100%;
+  backround-attachment: fixed;
 }
 
 .onboarding__main-section {
+  clip-path: circle(100% at 50% - 50%);
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(8, 1fr);
