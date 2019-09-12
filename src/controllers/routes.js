@@ -27,6 +27,8 @@ exports.getAdditionalChoices = (req, res) => {
   res.render("newplan-additional-choices", {recipes: mockdata});
 };
 
+
+
 exports.uniqueMealPlan = (req, res) => {
   let data = {
     planID: req.params.id
@@ -39,8 +41,23 @@ exports.uniqueMealPlan = (req, res) => {
     return data;
   });
 
+
   Promise.all([p1, p2])
     .then(data => {
+      data[1].recipes.rows.forEach((rec) => {
+        let recipeId = rec.recipe_id;
+        queries.getIngredients(recipeId).then(result => {
+          let key = `recipe${recipeId}`
+          data[key] = result.rows;
+          return data;
+        })
+      })
+      return data;
+    })
+    .then(data => {
+      // console.log('Number of recipes', data[1].recipes.rows.length);
+      // Access recipe ID with:  data[1].recipes.rows[0].id
+      // console.log("DATA ", data[1].meow);
       res.render("uniqueMealPlan", {
         id: data[1].planID,
         header: data[1].meta.rows[0],
