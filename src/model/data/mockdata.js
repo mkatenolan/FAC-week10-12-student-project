@@ -1,4 +1,4 @@
-module.exports{
+module.exports = {
     "recipes": [
         {
             "title": "Easy Shrimp Risotto",
@@ -463,7 +463,7 @@ module.exports{
             "title": "Arugula salad with white beans and pasta",
             "healthScore": 19.0,
             "readyInMinutes": 2,
-            "servings": ,
+            "servings":"" ,
             "image": "https://spoonacular.com/recipeImages/8577-556x370.jpg",
             "diets": [
                 "gluten free",
@@ -472,7 +472,7 @@ module.exports{
 "vegan"
 
             ],
-            "instructions": "Directions In a medium bowl, toss together the arugula, beans, pesto, and teaspoon each kosher salt and black pepper."",
+            "instructions": "Directions In a medium bowl, toss together the arugula, beans, pesto, and teaspoon each kosher salt and black pepper.",
             "extendedIngredients": [
                 {
                     "name": "Arugula",
