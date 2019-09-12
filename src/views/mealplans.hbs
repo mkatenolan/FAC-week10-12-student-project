@@ -7,7 +7,8 @@
 
   {{#each mealPlan}}
 
-  <h1>{{this.plan_name}}</h1>
+  <h1 class="meal-plan__header__{{this.plan_name}}">{{this.plan_name}}</h1>
+  <p class="meal-plan__days__{{this.plan_name}}">{{this.plan_days}} day plan</p>
 
   {{/each}}
 
