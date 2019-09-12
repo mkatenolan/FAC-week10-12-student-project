@@ -1,7 +1,7 @@
 //Routes to render each additional page
 
 const queries = require("../model/queries/db_queries");
-const parse = require("url-parse")
+const parse = require("url-parse");
 
 exports.getNewPlan = (req, res) => {
   res.render("newPlan");
@@ -26,17 +26,31 @@ exports.getAdditionalChoices = (req, res) => {
 };
 
 exports.uniqueMealPlan = (req, res) => {
-  queries.getSinglePlan(req.params.id)
-  .then(result =>
-    res.render("uniqueMealPlan", {header: result.rows[0]})
-  )
-  .catch(err => {
-    res.render("error", {
-      statusCode: 500,
-      errorMessage: "QUERY ERROR"
-    });
+  let data = {
+    planID: req.params.id
+  };
+  let p1 = queries.getSinglePlan(req.params.id).then(result => {
+    data.meta = result;
+  });
+  let p2 = queries.getRecipes(req.params.id).then(result => {
+    data.recipes = result;
+    return data;
   });
 
+  Promise.all([p1, p2])
+    .then(data => {
+      res.render("uniqueMealPlan", {
+        id: data[1].planID
+        header: data[1].meta.rows[0],
+        meal_plan_recipe: data[1].recipes.rows
+      });
+    })
+    .catch(err => {
+      res.render("error", {
+        statusCode: 500,
+        errorMessage: "QUERY ERROR"
+      });
+    });
 };
 
 exports.shoppingList = (req, res) => {
