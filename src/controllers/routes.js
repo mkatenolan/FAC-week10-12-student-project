@@ -40,7 +40,7 @@ exports.uniqueMealPlan = (req, res) => {
   Promise.all([p1, p2])
     .then(data => {
       res.render("uniqueMealPlan", {
-        id: data[1].planID
+        id: data[1].planID,
         header: data[1].meta.rows[0],
         meal_plan_recipe: data[1].recipes.rows
       });
@@ -54,5 +54,15 @@ exports.uniqueMealPlan = (req, res) => {
 };
 
 exports.shoppingList = (req, res) => {
-  res.render("shoppingList");
+  queries
+    .getShoppingList(req.params.id)
+    .then(result => {
+      res.render("shoppingList", { ingredients: result.rows });
+    })
+    .catch(err => {
+      res.render("error", {
+        statusCode: 500,
+        errorMessage: "QUERY ERROR"
+      });
+    });
 };
