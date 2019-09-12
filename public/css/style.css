@@ -1,0 +1,60 @@
+/* onboarding page */
+
+body {
+  margin: 0;
+}
+
+.onboarding__image {
+  height: 25vh;
+  background-image: url("../assets/onboarding-image.jpg");
+  background-size: 100%;
+  backround-attachment: fixed;
+}
+
+.onboarding__main-section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  height: 75vh;
+}
+
+.onboarding__header {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 1;
+  justify-self: center;
+}
+
+.onboarding__content__one {
+  justify-self: right;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 1;
+}
+
+.onboarding__content__two {
+  grid-column: 5 / span 2;
+  grid-row: 4 / span 1;
+}
+
+.onboarding__content__three {
+  grid-column: 3 / span 2;
+  grid-row: 6 / span 1;
+  justify-self: center;
+}
+
+/* .onboarding__new-plan{
+  grid-column: 2/ span 2;
+  grid-row: 7/span 1;
+}
+
+.onboarding__view-plans {
+  grid-column: 4/span 2;
+  grid-row: 7/span 1;
+} */
+
+.onboarding__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 2 / span 4;
+  grid-row: 8 / span 1;
+}
