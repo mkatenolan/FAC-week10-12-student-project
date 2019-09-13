@@ -29,7 +29,7 @@ exports.getAdditionalChoices = (req, res) => {
   res.render("newplanAdditionalChoices", { recipes: mockdata });
 };
 
-
+// Route to make call to DB to get info for individual meal plan overview
 
 exports.uniqueMealPlan = (req, res) => {
   let data = {
@@ -74,6 +74,14 @@ exports.uniqueMealPlan = (req, res) => {
       });
     });
 };
+
+//route to make a db call to get info about each individual recipe
+
+exports.individualRecipe = (req, res) => {
+  
+}
+
+// route to make a db call for shopping list page
 
 exports.shoppingList = (req, res) => {
   queries
