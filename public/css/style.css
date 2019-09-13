@@ -58,3 +58,11 @@ body {
   grid-column: 2 / span 4;
   grid-row: 8 / span 1;
 }
+
+/* all meal plans page */
+
+.meal-plans__main-section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
