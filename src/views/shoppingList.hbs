@@ -1,12 +1,12 @@
 <section>
     <h1 class="shopping-list__header">Shopping List</h1>
-    <h2> {{unique.title}}</h2>
-    <h2> {{unique-recipe.days}}</h2>
+    <h2 class="shopping-list__title"> {{unique.title}}</h2>
+    <h2 class="shopping-list__days"> {{unique-recipe.days}}</h2>
 
-
-    <ul>
+    <ul class="shopping-list__unordered-list">
         {{#each ingredients}}
-        <li> <input type="checkbox"> {{ this.ingredient_name}} </li>
+        <li class="shopping-list__unordered-list__item{{this.ingredient_name}}"> <input type="checkbox">
+            {{ this.ingredient_name}} </li>
         {{/each}}
     </ul>
 

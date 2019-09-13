@@ -1,9 +1,7 @@
 <section>
-
-
   <h1 class="second-choices__header"> Select up to five more recipes </h1>
-{{>recipe-list}}
-  {{>load-more}}
+  {{>recipeList}}
+  {{>loadMores}}
   <form class="second-choices__form" action="/mealplans">
     <input aria-label="Go back" value="Back" class="second-choices__back-button" type="submit" formaction="/newplan">
     <input aria-label="Save meal plan" value="save" class="second-choices__save-button" type="submit">

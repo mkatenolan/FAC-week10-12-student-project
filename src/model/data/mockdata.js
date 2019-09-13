@@ -421,14 +421,12 @@ module.exports = {
             "image": "https://spoonacular.com/recipeImages/877649-556x370.jpg",
             "diets": [
                 "gluten free",
-"dairy free",
-"paleolithic",
-"lacto ovo vegetarian",
-"primal",
-"fodmap friendly",
-"whole 30",
-"vegan"
-
+                "dairy free",
+                "paleolithic",
+                "lacto ovo vegetarian",
+                "primal",
+                "fodmap friendly",
+                "whole 30","vegan"
             ],
             "instructions": "Preheat your oven to 350 degrees. Cut the top and bottoms off of your squash. Stand the squash upright and remove the peel using a vegetable peeler. Cut the squash lengthwise, scoop out the seeds then cut into 1 inch cubes. See photos below for more help.Place the cubed squash in a bowl and toss with olive oil, salt and fresh ground black pepper. Spread the squash out on a baking sheet and bake in the oven for 30-40 minutes (until soft and slightly golden on the edges).When the squash has finished roasting, let it sit until it is cool enough to touch. Mix with the dried cranberries and spinach. Serve chilled or warm!",
             "extendedIngredients": [
@@ -470,7 +468,6 @@ module.exports = {
 "dairy free",
 "lacto ovo vegetarian",
 "vegan"
-
             ],
             "instructions": "Directions In a medium bowl, toss together the arugula, beans, pesto, and teaspoon each kosher salt and black pepper.",
             "extendedIngredients": [
