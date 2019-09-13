@@ -1,6 +1,5 @@
 //Routes to render each additional page
 const mockdata = require("./../model/data/mockdata");
-
 const queries = require("../model/queries/db_queries");
 const parse = require("url-parse");
 
@@ -16,7 +15,7 @@ exports.getMealPlans = (req, res) => {
   queries
     .getAllPlans()
     .then(result => {
-      res.render("mealplans", { mealPlan: result.rows });
+      res.render("mealPlans", { mealPlan: result.rows });
     })
     .catch(err => {
       res.render("error", {
@@ -27,7 +26,7 @@ exports.getMealPlans = (req, res) => {
 };
 
 exports.getAdditionalChoices = (req, res) => {
-  res.render("newplan-additional-choices", { recipes: mockdata });
+  res.render("newplanAdditionalChoices", { recipes: mockdata });
 };
 
 exports.uniqueMealPlan = (req, res) => {

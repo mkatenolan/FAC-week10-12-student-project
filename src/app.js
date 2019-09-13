@@ -21,7 +21,6 @@ app.engine(
 
 app.set("port", process.env.PORT || 3000);
 app.use(favicon(path.join(__dirname, "..", "public", "assets", "favicon.ico")));
-
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(controllers);
 

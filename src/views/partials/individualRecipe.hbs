@@ -1,0 +1,19 @@
+<section class="individual-recipe__section">
+
+  {{#each individualRecipe}}
+  <h1>{{this.title}}</h1>
+  <img src={{this.img}}>
+  <span>{{this.health_score}}</span>
+
+  <ul>
+
+    {{#each this.ingredient}}
+    <li>{{this.ingredient_name}}</li>
+    {{/each}}
+
+  </ul>
+
+  <p>{{this.instructions}}</p>
+  {{/each}}
+
+</section>

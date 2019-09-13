@@ -2,15 +2,14 @@
 
   <h1 class="new-plan__header"> Pick 2 recipes</h1>
 
-  {{>recipe-list}}
+  {{>recipeList}}
 
   <form action="/mealplans" class="newplan__nav-buttons">
     <input type="submit" value="Back" class="newplan__nav-buttons__back">
     <input type="submit" value="Next" formaction="/newplan-additional-choices" class="newplan__nav_buttons__next">
   </form>
 
-
-  {{>load-more}}
+  {{>loadMore}}
 
   {{>counter}}
 

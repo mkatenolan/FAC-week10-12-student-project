@@ -2,15 +2,15 @@
 
   <h1 class="meal-plans__header">Meal Plans</h1>
 
-  <input type="text" name="search-meal-plans" class="meal-plans__search">
+  <input class="meal-plans__search" type="text" name="search-meal-plans">
 
 
   {{#each mealPlan}}
 
   <h1 class="meal-plan__header__{{this.plan_name}}">{{this.plan_name}}</h1>
   <p class="meal-plan__days__{{this.plan_name}}">{{this.plan_days}} day plan</p>
-  <a href="/unique-meal-plan/{{this.id}}">View plan</a>
-    <!-- <input type="submit" value="View plan">
+  <a class="meal-plan__link__{{this.plan_name}}" href="/unique-meal-plan/{{this.id}}">View plan</a>
+  <!-- <input type="submit" value="View plan">
   </form> -->
   {{/each}}
 
