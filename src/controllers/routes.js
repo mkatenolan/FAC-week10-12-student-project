@@ -78,8 +78,20 @@ exports.uniqueMealPlan = (req, res) => {
 //route to make a db call to get info about each individual recipe
 
 exports.individualRecipe = (req, res) => {
-  
-}
+let id = parseInt(req.params.id, 10)
+    queries.getIngredients(id).then(result => {
+     res.render("individualRecipe", { oneRecipe : result.rows });
+      console.log(result.rows);
+   })
+   .catch(err => {
+     res.render("error", {
+       statusCode: 500,
+       errorMessage: "QUERY ERROR"
+     });
+
+   });
+
+};
 
 // route to make a db call for shopping list page
 

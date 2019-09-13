@@ -1,13 +1,13 @@
 <section class="individual-recipe__section">
 
-  {{#each individualRecipe}}
+  {{#each oneRecipe}}
   <h1>{{this.title}}</h1>
   <img src={{this.img}}>
   <span>{{this.health_score}}</span>
 
   <ul>
 
-    {{#each this.ingredient}}
+    {{#each this.ingredient_name}}
     <li>{{this.ingredient_name}}</li>
     {{/each}}
 
