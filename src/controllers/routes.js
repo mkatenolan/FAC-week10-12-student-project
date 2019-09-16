@@ -65,11 +65,22 @@ exports.individualRecipe = (req, res) => {
   console.log("we are in the router function");
 
   let id = parseInt(req.params.id, 10);
-  queries
-    .getIngredients(id)
-    .then(result => {
-      console.log(result);
-      res.render("individualRecipe", { ingredients: result.rows });
+  console.log("this is id", id);
+  let data = {};
+  let p1 = queries.getIngredients(id).then(result => {
+    data.ingredients = result;
+  });
+
+  let p2 = queries.getSingleRecipe(id).then(result => {
+    data.recipeOverview = result;
+    return data;
+  });
+
+
+      Promise.all([p1, p2])
+      .then(data => {
+        console.log("this is data", data[1].ingredients.rows);
+      res.render("individualRecipe", { recipeOverview: data[1].recipeOverview.rows, ingredients: data[1].ingredients.rows });
     })
     .catch(err => {
       res.render("error", {
