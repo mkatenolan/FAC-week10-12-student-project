@@ -6,9 +6,10 @@
 
 
   <h1 class="recipe__header__{{this.recipeName}}">{{this.recipeName}}</h1>
-  <p class="recipe__header____cooking__{{this.recipeName}}">Cooking time: {{this.cookingTime}}</p>
-  <a class="recipe__header____health__{{this.recipeName}}">Health score: {{this.healthScore}}</a>
+  <p class="recipe__cooking__{{this.recipeName}}">Cooking time: {{this.cookingTime}}</p>
+  <p class="recipe__health__{{this.recipeName}}">Health score: {{this.healthScore}}</p>
   <img src="{{this.imageUrl}}">
+
 
   {{/each}}
 

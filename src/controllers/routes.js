@@ -29,7 +29,13 @@ exports.getMealPlans = (req, res) => {
 
 exports.getAdditionalChoices = (req, res) => {
   res.render("newplanAdditionalChoices", { recipes: mockdata });
+
+
+
+
 };
+
+
 
 exports.uniqueMealPlan = (req, res) => {
   let data = {
