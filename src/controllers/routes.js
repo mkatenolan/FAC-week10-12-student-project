@@ -43,24 +43,8 @@ exports.uniqueMealPlan = (req, res) => {
     return data;
   });
 
-
-
-
-    //   data[1].recipes.rows.forEach((rec) => {
-    //     let recipeId = rec.recipe_id;
-    //     queries.getIngredients(recipeId).then(result => {
-    //       let key = `recipe${recipeId}`
-    //       data[key] = result.rows;
-    //       return data;
-    //     })
-    //   })
-
-    Promise.all([p1, p2])
+  Promise.all([p1, p2])
     .then(data => {
-      // console.log('Number of recipes', data[1].recipes.rows.length);
-      // Access recipe ID with:  data[1].recipes.rows[0].id
-      // console.log("DATA ", data[1].meow);
-      // console.log(data);
       res.render("uniqueMealPlan", {
         id: data[1].planID,
         header: data[1].meta.rows[0],
@@ -78,19 +62,21 @@ exports.uniqueMealPlan = (req, res) => {
 //route to make a db call to get info about each individual recipe
 
 exports.individualRecipe = (req, res) => {
-let id = parseInt(req.params.id, 10)
-    queries.getIngredients(id).then(result => {
-     res.render("individualRecipe", { oneRecipe : result.rows });
-      console.log(result.rows);
-   })
-   .catch(err => {
-     res.render("error", {
-       statusCode: 500,
-       errorMessage: "QUERY ERROR"
-     });
+  console.log("we are in the router function");
 
-   });
-
+  let id = parseInt(req.params.id, 10);
+  queries
+    .getIngredients(id)
+    .then(result => {
+      console.log(result);
+      res.render("individualRecipe", { ingredients: result.rows });
+    })
+    .catch(err => {
+      res.render("error", {
+        statusCode: 500,
+        errorMessage: "QUERY ERROR"
+      });
+    });
 };
 
 // route to make a db call for shopping list page

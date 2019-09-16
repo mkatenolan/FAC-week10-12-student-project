@@ -13,16 +13,13 @@
     {{#each meal_plan_recipe}}
     <img class="unique-meal-plan__recipe-image{{this.recipe_name}}" src="{{this.img}}">
     <h1 class="unique-meal-plan__recipe-title__{{this.recipe_name}}"> {{this.recipe_name}}</h1>
-
-    <form action="/unique-recipe/{{this.id}}">
-    <input type="submit" class="unique-meal-plan__recipe-info__{{this.recipe-name}}__button" value="Info"> i </input>
-  </form>
-    <span class="unique-meal-plan__recipe_info__{{this.recipe-name}}__span">
+    <a href="/unique-recipe/{{this.recipe_id}}"> I</a>
+    <span class=" unique-meal-plan__recipe_info__{{this.recipe-name}}__span">
         Time: {{this.cooking_time}}
         Health score: {{this.health_score}}
     </span>
 
-    {{>individualRecipe}}
+    {{individualRecipe}}
     {{/each}}
 
 
