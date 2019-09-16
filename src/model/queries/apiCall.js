@@ -1,10 +1,11 @@
-const recipeUrl = "https://api.spoonacular.com/recipes/random?number=5&apiKey=fa31546b9db54de4ac0d528cc21fb947";
+// const recipeUrl = "https://api.spoonacular.com/recipes/random?number=5&apiKey=fa31546b9db54de4ac0d528cc21fb947";
 const fetch = require('node-fetch');
 
-const getRecipesApi = (url) => {
-    console.log('(apiCall) getRecipesApi (fetch) runs and input = ', url);
+const getRecipesApi = () => {
+  const recipeUrl = "https://api.spoonacular.com/recipes/random?number=5&apiKey=fa31546b9db54de4ac0d528cc21fb947";
+    console.log('(apiCall) getRecipesApi (fetch) runs and input = ', recipeUrl);
     let fiveRecipe = {};
-    fetch(url)
+    fetch(recipeUrl)
       .then(data => data.json())
       .then(data =>{ 
           for (let i=0; i < data.recipes.length; i++) {
@@ -17,7 +18,6 @@ const getRecipesApi = (url) => {
           }
           return fiveRecipe;
         })
-    .then(console.log)
       .catch(err => console.log(err))
 
     
@@ -25,6 +25,6 @@ const getRecipesApi = (url) => {
     // return fiveRecipe;
 };
 
+module.exports = {getRecipesApi};
 
-getRecipesApi(recipeUrl);
 

@@ -4,7 +4,7 @@ const error = require("./error");
 const routes = require("./routes.js");
 
 router.get("/", routes.getHome);
-router.get("/newplan", routes.getNewPlan);
+router.get("/newplan", routes.getFiveRecipes);
 router.get("/mealplans", routes.getMealPlans);
 router.get("/newplan-additional-choices", routes.getAdditionalChoices);
 router.get("/unique-meal-plan/:id/", routes.uniqueMealPlan);

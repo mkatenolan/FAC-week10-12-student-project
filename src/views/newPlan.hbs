@@ -2,7 +2,17 @@
 
   <h1 class="new-plan__header"> Pick 2 recipes</h1>
 
-  {{>recipeList}}
+  {{#each recipe}}
+
+  <p>{{recipeName}}</p>
+  <p>{{cookingTime}}</p>
+  <p>{{healthScore}}</p>
+  <p>{{imageUrl}}</p>
+
+
+  {{/each}}
+
+
 
   <form action="/mealplans" class="newplan__nav-buttons">
     <input type="submit" value="Back" class="newplan__nav-buttons__back">
