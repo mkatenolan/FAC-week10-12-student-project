@@ -2,13 +2,13 @@
 
   <h1 class="new-plan__header"> Pick 2 recipes</h1>
 
-  {{#each recipe}}
+  {{#each recipes}}
 
-  <p>{{recipeName}}</p>
-  <p>{{cookingTime}}</p>
-  <p>{{healthScore}}</p>
-  <p>{{imageUrl}}</p>
 
+  <h1 class="recipe__header__{{this.recipeName}}">{{this.recipeName}}</h1>
+  <p class="recipe__header____cooking__{{this.recipeName}}">Cooking time: {{this.cookingTime}}</p>
+  <a class="recipe__header____health__{{this.recipeName}}">Health score: {{this.healthScore}}</a>
+  <img src="{{this.imageUrl}}">
 
   {{/each}}
 
@@ -18,6 +18,8 @@
     <input type="submit" value="Back" class="newplan__nav-buttons__back">
     <input type="submit" value="Next" formaction="/newplan-additional-choices" class="newplan__nav_buttons__next">
   </form>
+
+
 
   {{>loadMore}}
 
