@@ -4,12 +4,11 @@ const apiKey = 'ac1e1c1767144e209bd7a0c6b23e1fbd' //  fa31546b9db54de4ac0d528cc2
 
 const getRecipesApi = () => {
   const recipeUrl = `https://api.spoonacular.com/recipes/random?number=5&apiKey=${apiKey}`;
-    console.log('(apiCall) getRecipesApi (fetch) runs and input = ', recipeUrl);
+    // console.log('(apiCall) getRecipesApi (fetch) runs and input = ', recipeUrl);
     return fetch(recipeUrl)
       .then(data => data.json())
       .then(data => {
           let fiveRecipe = {};
-          console.log(data.recipes);
           for (let i=0; i < data.recipes.length; i++) {
               fiveRecipe[i] = {};
               fiveRecipe[i].id =  data.recipes[i].id;
@@ -18,7 +17,6 @@ const getRecipesApi = () => {
               fiveRecipe[i].healthScore = data.recipes[i].healthScore;
               fiveRecipe[i].imageUrl = data.recipes[i].image;
           }
-          // console.log({fiveRecipe});
           return fiveRecipe;
         })
       .catch(err => console.log(err))
@@ -26,7 +24,7 @@ const getRecipesApi = () => {
 
 const getIngredientsApi = (idOne, idTwo) => {
   const url = `https://api.spoonacular.com/recipes/informationBulk?ids=${idOne},${idTwo}&apiKey=${apiKey}`;
-    console.log('(apiCall) getIngredientsApi (fetch) runs and input = ', url);
+    // console.log('(apiCall) getIngredientsApi (fetch) runs and input = ', url);
     return fetch(url)
       .then(data => data.json())
       .then(data => {
@@ -38,7 +36,6 @@ const getIngredientsApi = (idOne, idTwo) => {
             }
           })
         })
-          console.log({perishables});
           return perishables;
         })
       .catch(err => console.log(err))
@@ -47,7 +44,7 @@ const getIngredientsApi = (idOne, idTwo) => {
 const getSimilarsApi = (arr) => {
   const ingredientsUrl = arr.join(',').split(' ').join('+');
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsUrl}&number=5&ranking=2&apiKey=${apiKey}`
-    console.log('(apiCall) getSimilarsApi (fetch) runs and input = ', url);
+    // console.log('(apiCall) getSimilarsApi (fetch) runs and input = ', url);
     return fetch(url)
       .then(data => data.json())
       .then(data => {
