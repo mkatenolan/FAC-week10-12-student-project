@@ -2,34 +2,40 @@ const mailhbs = require("nodemailer-express-handlebars");
 const nodemailer = require("nodemailer");
 
 exports.post = (req, res) => {
-var options = {
+console.log(req);
+let options = {
   viewEngine: {
     extname: ".hbs",
-    layoutsDir: "views/email/",
+    layoutsDir: "src/views/email",
     defaultLayout: "template",
     partialsDir: "views/partials/"
   },
-  viewPath: "views/email/",
+  viewPath: "src/views/email",
   extName: ".hbs"
 };
-var sgTransport = require("nodemailer-sendgrid-transport");
+let sgTransport = require("nodemailer-sendgrid-transport");
 //using sendgrid as transport, but can use any transport.
-var send_grid = {
+let send_grid = {
+  service: 'SendGrid',
   auth: {
-    api_user: "tonylomax",
+
     api_key:
       "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"
+
+
   }
 };
-var mailer = nodemailer.createTransport(sgTransport(send_grid));
+let mailer = nodemailer.createTransport(sgTransport(send_grid));
 mailer.use("compile", mailhbs(options));
 mailer.sendMail(
   {
-    from: "antl.lomax@gmail.com",
+    from: "mkatenolan@gmail.com",
     to: "antl.lomax@gmail.com",
     subject: "Any Subject",
     template: "email_body",
-    context: {}
+    context: {
+      test: 'test'
+    }
   },
   (error, response) => {
     if (error) console.log(error);
