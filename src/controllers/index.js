@@ -9,6 +9,7 @@ router.get("/mealplans", routes.getMealPlans);
 router.get("/newplan-additional-choices", routes.getAdditionalChoices);
 router.get("/unique-meal-plan/:id/", routes.uniqueMealPlan);
 router.get("/shopping-list/:id/", routes.shoppingList);
+router.get("/unique-recipe/:id/", routes.individualRecipe);
 router.use(error.client);
 router.use(error.server);
 

@@ -1,0 +1,20 @@
+<section class="individual-recipe__section">
+
+  {{#each recipeOverview}}
+  <h1>{{this.recipe_name}}</h1>
+  <span>{{this.health_score}}</span>
+  <span>{{this.cooking_time}}</span>
+{{/each}}
+ <ul>
+
+    {{#each ingredients}}
+    <li>{{this.ingredient_name}}</li>
+    {{/each}}
+
+  </ul>
+
+{{#each recipeOverview}}
+  <p>{{this.instructions}}</p>
+{{/each}}
+
+</section>
