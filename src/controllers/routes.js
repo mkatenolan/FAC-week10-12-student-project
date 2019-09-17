@@ -21,7 +21,7 @@ exports.getMealPlans = (req, res) => {
   queries
     .getAllPlans()
     .then(result => {
-      res.render("mealPlans", { mealPlan: result.rows });
+      res.render("mealplans", { mealPlan: result.rows });
     })
     .catch(err => {
       res.render("error", {
@@ -32,7 +32,22 @@ exports.getMealPlans = (req, res) => {
 };
 
 exports.getAdditionalChoices = (req, res) => {
-  res.render("newplanAdditionalChoices", { recipes: mockdata });
+
+  const recipes = {
+    one: req.cookies.recipes.split('+')[1],
+    two:req.cookies.recipes.split('+')[1]
+  }
+  api.getIngredientsApi(recipes.one, recipes.two)
+    .then(ingredients => api.getRecipesApi(ingredients))
+    .then(result => {
+      res.render("newplanAdditionalChoices", { recipes : result});
+    })
+    .catch(err => {
+      res.render("error", {
+        statusCode: 500,
+        errorMessage: "API ERROR"
+      });
+    });
 };
 
 // Route to make call to DB to get info for individual meal plan overview
