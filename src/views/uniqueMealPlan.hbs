@@ -5,9 +5,10 @@
 
     <a class="unique-meal-plan__shopping-list" href="/shopping-list/{{this.id}}"> Shopping List </a>
 
-    <form action="/shopping-list" class="unique-meal-plan__form">
-        <!-- <input type="submit" value="Shopping list" class="unique-meal-plan__shopping-list"> -->
-        <input type="submit" value="Email" formaction="/sendEmail" class="unique-meal-plan__form__email">
+    <form action="/sendEmail" class="unique-meal-plan__form" method="POST">
+        <label for="email-field">Enter your email and we'll send your meal plan!!</label>
+        <input class="email-input-field" id="email-field" name="email" type="text" placeholder="enter your email">
+        <input type="submit" name="submit" value="Email" class="unique-meal-plan__form__email">
     </form>
 
     {{#each meal_plan_recipe}}
