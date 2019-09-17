@@ -28,11 +28,18 @@ exports.getMealPlans = (req, res) => {
 };
 
 exports.getAdditionalChoices = (req, res) => {
-  res.render("newplanAdditionalChoices", { recipes: mockdata });
-
-
-
-
+  console.log('hello', 'cookies:' , req.cookies)
+  api.getIngredientsApi(document.cookie.split('+')[1], document.cookie.split('+')[2])
+  .then(ingredients => api.getRecipesApi(ingredients))
+  .then(result => {
+    res.render("newplanAdditionalChoices", { recipes : result});
+  })
+    .catch(err => {
+      res.render("error", {
+        statusCode: 500,
+        errorMessage: "API ERROR"
+      });
+    });
 };
 
 
@@ -125,4 +132,4 @@ exports.getFiveRecipes = (req, res) => {
         errorMessage: "API ERROR"
       });
     });
-}
+};
