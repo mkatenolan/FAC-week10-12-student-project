@@ -17,7 +17,7 @@ exports.getMealPlans = (req, res) => {
   queries
     .getAllPlans()
     .then(result => {
-      res.render("mealPlans", { mealPlan: result.rows });
+      res.render("mealplans", { mealPlan: result.rows });
     })
     .catch(err => {
       res.render("error", {

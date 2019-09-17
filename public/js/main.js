@@ -16,3 +16,4 @@ document.querySelectorAll('.recipe__select').forEach(button => {
     console.log('Cookie: ', document.cookie);
   })
 })
+
