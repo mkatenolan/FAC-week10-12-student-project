@@ -28,6 +28,7 @@
     "tape": "^4.11.0"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.4",
     "dotenv": "^8.1.0",
     "env2": "^2.2.2",
     "express": "^4.17.1",

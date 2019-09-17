@@ -28,12 +28,16 @@ exports.getMealPlans = (req, res) => {
 };
 
 exports.getAdditionalChoices = (req, res) => {
-  console.log('hello', 'cookies:' , req.cookies)
-  api.getIngredientsApi(document.cookie.split('+')[1], document.cookie.split('+')[2])
-  .then(ingredients => api.getRecipesApi(ingredients))
-  .then(result => {
-    res.render("newplanAdditionalChoices", { recipes : result});
-  })
+
+  const recipes = {
+    one: req.cookies.recipes.split('+')[1],
+    two:req.cookies.recipes.split('+')[1]
+  }
+  api.getIngredientsApi(recipes.one, recipes.two)
+    .then(ingredients => api.getRecipesApi(ingredients))
+    .then(result => {
+      res.render("newplanAdditionalChoices", { recipes : result});
+    })
     .catch(err => {
       res.render("error", {
         statusCode: 500,
