@@ -1,0 +1,26 @@
+.meal_plan_container{
+  display: flex;
+
+}
+
+.headers__unique-meal-plan__container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+}
+
+.unique-meal-plan__header{
+  font-size:3em;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.unique-meal-plan__days{
+  font-size:1.5em;
+  font-style: italic;
+}
+
+.form__unique-meal-plan{
+  display: none;
+}

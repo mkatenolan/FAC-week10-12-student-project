@@ -2,11 +2,26 @@
 
 body {
   margin: 0;
+  font-family: 'Overlock', cursive;
+
 }
 
+.btn {
+  background-color:#F0eebd;
+  width: 10em;
+  height: 5em;
+  border-radius: 20%;
+  border-style: none;
+
+}
+
+/* .header {
+
+}  */
+
 .background{
-  height: 25vh;
-  background-image: url("../assets/onboarding-image.jpg");
+  height: 20vh;
+  background-image: url("../assets/food-background.jpeg");
   background-size: 100%;
   backround-attachment: fixed;
 }
@@ -16,48 +31,43 @@ body {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(8, 1fr);
   height: 75vh;
+  background-color: #F7F4F3;
+  padding-bottom: 2em;
+
 }
 
-.onboarding__header {
+.header__onboarding{
   grid-column: 3 / span 2;
   grid-row: 1 / span 1;
   justify-self: center;
 }
 
-.onboarding__content__one {
+.paragraph__onboarding__one{
   justify-self: right;
   grid-column: 1 / span 2;
   grid-row: 2 / span 1;
 }
 
-.onboarding__content__two {
+.paragraph__onboarding__two {
   grid-column: 5 / span 2;
   grid-row: 4 / span 1;
 }
 
-.onboarding__content__three {
+.paragraph__onboarding__three{
   grid-column: 3 / span 2;
   grid-row: 6 / span 1;
   justify-self: center;
 }
 
-/* .onboarding__new-plan{
-  grid-column: 2/ span 2;
-  grid-row: 7/span 1;
-}
 
-.onboarding__view-plans {
-  grid-column: 4/span 2;
-  grid-row: 7/span 1;
-} */
-
-.onboarding__form {
+.form__onboarding__form{
   display: flex;
   justify-content: space-between;
   align-items: center;
   grid-column: 2 / span 4;
   grid-row: 8 / span 1;
 }
+
 
 /* all meal plans page */
 
