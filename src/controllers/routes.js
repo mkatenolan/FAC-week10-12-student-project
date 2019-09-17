@@ -153,7 +153,7 @@ exports.email = (req, res) => {
   mailer.use("compile", mailhbs(options));
   mailer.sendMail(
     {
-      from: "mkatenolan@gmail.com",
+      from: "nomnomfac@gmail.com",
       to: email,
       subject: "Any Subject",
       template: "email_body",
