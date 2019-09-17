@@ -32,13 +32,12 @@ exports.getMealPlans = (req, res) => {
 };
 
 exports.getAdditionalChoices = (req, res) => {
-
   const recipes = {
     one: req.cookies.recipes.split('+')[1],
-    two:req.cookies.recipes.split('+')[1]
+    two: req.cookies.recipes.split('+')[2]
   }
   api.getIngredientsApi(recipes.one, recipes.two)
-    .then(ingredients => api.getRecipesApi(ingredients))
+    .then(ingredients => api.getSimilarsApi(ingredients))
     .then(result => {
       res.render("newplanAdditionalChoices", { recipes : result});
     })

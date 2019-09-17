@@ -1,6 +1,6 @@
 // const recipeUrl = "https://api.spoonacular.com/recipes/random?number=5&apiKey=fa31546b9db54de4ac0d528cc21fb947";
 const fetch = require('node-fetch');
-const apiKey = 'ac1e1c1767144e209bd7a0c6b23e1fbd' //  fa31546b9db54de4ac0d528cc21fb947
+const apiKey = 'fa31546b9db54de4ac0d528cc21fb947' //  fa31546b9db54de4ac0d528cc21fb947
 
 const getRecipesApi = () => {
   const recipeUrl = `https://api.spoonacular.com/recipes/random?number=5&apiKey=${apiKey}`;
@@ -44,7 +44,7 @@ const getIngredientsApi = (idOne, idTwo) => {
 const getSimilarsApi = (arr) => {
   const ingredientsUrl = arr.join(',').split(' ').join('+');
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsUrl}&number=5&ranking=2&apiKey=${apiKey}`
-    // console.log('(apiCall) getSimilarsApi (fetch) runs and input = ', url);
+    console.log('(apiCall) getSimilarsApi (fetch) runs and input = ', url);
     return fetch(url)
       .then(data => data.json())
       .then(data => {
@@ -57,6 +57,7 @@ const getSimilarsApi = (arr) => {
             // fiveMore[i].healthScore = data[i].healthScore;
             fiveMore[i].imageUrl = data[i].image;
         }
+        console.log({fiveMore});
         return fiveMore;
       })
       .catch(err => console.log(err))
