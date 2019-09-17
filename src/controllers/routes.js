@@ -1,7 +1,9 @@
 //Routes to render each additional page
 const mockdata = require("./../model/data/mockdata");
 const queries = require("../model/queries/db_queries");
+const api = require("../model/queries/apiCall");
 const parse = require("url-parse");
+// const api= ('../model/queries/apiCall');
 
 exports.getHome = (req, res) => {
   res.render("home");
@@ -27,7 +29,12 @@ exports.getMealPlans = (req, res) => {
 
 exports.getAdditionalChoices = (req, res) => {
   res.render("newplanAdditionalChoices", { recipes: mockdata });
+
+
+
+
 };
+
 
 // Route to make call to DB to get info for individual meal plan overview
 
@@ -105,3 +112,17 @@ exports.shoppingList = (req, res) => {
       });
     });
 };
+
+exports.getFiveRecipes = (req, res) => {
+  api.getRecipesApi()
+    // .then(console.log)
+    .then(result => {
+      res.render("newPlan", { recipes : result });
+    })
+    .catch(err => {
+      res.render("error", {
+        statusCode: 500,
+        errorMessage: "API ERROR"
+      });
+    });
+}
