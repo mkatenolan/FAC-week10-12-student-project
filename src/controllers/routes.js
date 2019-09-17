@@ -36,6 +36,7 @@ exports.getAdditionalChoices = (req, res) => {
 };
 
 
+// Route to make call to DB to get info for individual meal plan overview
 
 exports.uniqueMealPlan = (req, res) => {
   let data = {
@@ -64,6 +65,39 @@ exports.uniqueMealPlan = (req, res) => {
       });
     });
 };
+
+//route to make a db call to get info about each individual recipe
+
+exports.individualRecipe = (req, res) => {
+  console.log("we are in the router function");
+
+  let id = parseInt(req.params.id, 10);
+  console.log("this is id", id);
+  let data = {};
+  let p1 = queries.getIngredients(id).then(result => {
+    data.ingredients = result;
+  });
+
+  let p2 = queries.getSingleRecipe(id).then(result => {
+    data.recipeOverview = result;
+    return data;
+  });
+
+
+      Promise.all([p1, p2])
+      .then(data => {
+        console.log("this is data", data[1].ingredients.rows);
+      res.render("individualRecipe", { recipeOverview: data[1].recipeOverview.rows, ingredients: data[1].ingredients.rows });
+    })
+    .catch(err => {
+      res.render("error", {
+        statusCode: 500,
+        errorMessage: "QUERY ERROR"
+      });
+    });
+};
+
+// route to make a db call for shopping list page
 
 exports.shoppingList = (req, res) => {
   queries

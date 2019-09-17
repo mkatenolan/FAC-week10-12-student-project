@@ -24,7 +24,7 @@ const getRecipes = planId => {
 
 const getSingleRecipe = recipeId => {
   return connection.query(
-    `SELECT * FROM recipes WHERE recipe_id = ${recipeId};`
+    `SELECT * FROM recipes WHERE id = ${recipeId};`
   );
 };
 
@@ -32,8 +32,7 @@ const getSingleRecipe = recipeId => {
 
 const getIngredients = recipeId => {
   return connection.query(
-    `SELECT ingredient_name FROM ingredients INNER JOIN junction_recipes_ingredients ON ingredients.id = junction_recipes_ingredients.ingredient_id WHERE recipe_id = ${recipeId};`
-  );
+    `SELECT ingredient_name FROM ingredients INNER JOIN junction_recipes_ingredients ON ingredients.id = junction_recipes_ingredients.ingredient_id WHERE recipe_id = ${recipeId};`)
 };
 
 // Query for getting shopping list for a specific meal plan
