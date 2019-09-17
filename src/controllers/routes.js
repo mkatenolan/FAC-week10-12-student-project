@@ -3,8 +3,11 @@ const mockdata = require("./../model/data/mockdata");
 const queries = require("../model/queries/db_queries");
 const api = require("../model/queries/apiCall");
 const parse = require("url-parse");
-// const email = require('./email');
-// const api= ('../model/queries/apiCall');
+const mailhbs = require("nodemailer-express-handlebars");
+const nodemailer = require("nodemailer");
+require("env2")("./.env");
+
+let data = {};
 
 exports.getHome = (req, res) => {
   res.render("home");
@@ -30,20 +33,12 @@ exports.getMealPlans = (req, res) => {
 
 exports.getAdditionalChoices = (req, res) => {
   res.render("newplanAdditionalChoices", { recipes: mockdata });
-
-
-
-
 };
-
-let data = {};
-
 
 // Route to make call to DB to get info for individual meal plan overview
 
 exports.uniqueMealPlan = (req, res) => {
-
- data.planID = req.params.id;
+  data.planID = req.params.id;
 
   let p1 = queries.getSinglePlan(req.params.id).then(result => {
     data.meta = result;
@@ -86,11 +81,13 @@ exports.individualRecipe = (req, res) => {
     return data;
   });
 
-
-      Promise.all([p1, p2])
-      .then(data => {
-        console.log("this is data", data[1].ingredients.rows);
-      res.render("individualRecipe", { recipeOverview: data[1].recipeOverview.rows, ingredients: data[1].ingredients.rows });
+  Promise.all([p1, p2])
+    .then(data => {
+      console.log("this is data", data[1].ingredients.rows);
+      res.render("individualRecipe", {
+        recipeOverview: data[1].recipeOverview.rows,
+        ingredients: data[1].ingredients.rows
+      });
     })
     .catch(err => {
       res.render("error", {
@@ -117,10 +114,11 @@ exports.shoppingList = (req, res) => {
 };
 
 exports.getFiveRecipes = (req, res) => {
-  api.getRecipesApi()
+  api
+    .getRecipesApi()
     // .then(console.log)
     .then(result => {
-      res.render("newPlan", { recipes : result });
+      res.render("newPlan", { recipes: result });
     })
     .catch(err => {
       res.render("error", {
@@ -128,19 +126,12 @@ exports.getFiveRecipes = (req, res) => {
         errorMessage: "API ERROR"
       });
     });
-}
-
-const mailhbs = require("nodemailer-express-handlebars");
-const nodemailer = require("nodemailer");
-// const routes = require('./routes');
-// let data = routes.data;
-require("env2")("./.env");
+};
 
 exports.email = (req, res) => {
-  console.log("we are in the post function");
-  console.log('this is the page data', data);
-  console.log('this is the request from the user', req);
-  let email = "antl.lomax@gmail.com";
+  let parsedReq = JSON.parse(req);
+  let url = parsedReq.url;
+  let email = parsedReq.email;
   let options = {
     viewEngine: {
       extname: ".hbs",
@@ -152,7 +143,6 @@ exports.email = (req, res) => {
     extName: ".hbs"
   };
   let sgTransport = require("nodemailer-sendgrid-transport");
-  //using sendgrid as transport, but can use any transport.
   let send_grid = {
     service: "SendGrid",
     auth: {
@@ -168,19 +158,15 @@ exports.email = (req, res) => {
       subject: "Any Subject",
       template: "email_body",
       context: {
-        test: "THIS WORKSSSS",
-        // plan_name: data[1].meta.rows.plan_name,
-        // plan_days: data[1].meta.rows.plan_days
+        plan_name: data.meta.rows[0].plan_name,
+        plan_days: data.meta.rows[0].plan_days,
+        plan_url: url
       }
     },
     (error, response) => {
       if (error) console.log(error);
-      else console.log(response, "mail sent to ");
-
+      else console.log(response, "mail sent to", email);
       mailer.close();
     }
   );
 };
-
-
-// module.exports = data
