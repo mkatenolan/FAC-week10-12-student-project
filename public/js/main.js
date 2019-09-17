@@ -1,5 +1,3 @@
-
-
 document.cookie = 'recipes='
 document.querySelectorAll('.recipe__select').forEach(button => {
   button.addEventListener('click', (e) => {
@@ -15,5 +13,11 @@ document.querySelectorAll('.recipe__select').forEach(button => {
     }
     console.log('Cookie: ', document.cookie);
   })
-})
+});
 
+document.querySelector('.newplan__nav_buttons__next').addEventListener('click', (e) => {
+  if (document.cookie.split('+').length !== 3) { 
+    e.preventDefault();
+    window.alert("Please select two recipes");
+  }
+});
