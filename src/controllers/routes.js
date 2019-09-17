@@ -3,6 +3,7 @@ const mockdata = require("./../model/data/mockdata");
 const queries = require("../model/queries/db_queries");
 const api = require("../model/queries/apiCall");
 const parse = require("url-parse");
+// const email = require('./email');
 // const api= ('../model/queries/apiCall');
 
 exports.getHome = (req, res) => {
@@ -35,13 +36,15 @@ exports.getAdditionalChoices = (req, res) => {
 
 };
 
+let data = {};
+
 
 // Route to make call to DB to get info for individual meal plan overview
 
 exports.uniqueMealPlan = (req, res) => {
-  let data = {
-    planID: req.params.id
-  };
+
+ data.planID = req.params.id;
+
   let p1 = queries.getSinglePlan(req.params.id).then(result => {
     data.meta = result;
   });
@@ -126,3 +129,58 @@ exports.getFiveRecipes = (req, res) => {
       });
     });
 }
+
+const mailhbs = require("nodemailer-express-handlebars");
+const nodemailer = require("nodemailer");
+// const routes = require('./routes');
+// let data = routes.data;
+require("env2")("./.env");
+
+exports.email = (req, res) => {
+  console.log("we are in the post function");
+  console.log('this is the page data', data);
+  console.log('this is the request from the user', req);
+  let email = "antl.lomax@gmail.com";
+  let options = {
+    viewEngine: {
+      extname: ".hbs",
+      layoutsDir: "src/views/email",
+      defaultLayout: "template",
+      partialsDir: "views/partials/"
+    },
+    viewPath: "src/views/email",
+    extName: ".hbs"
+  };
+  let sgTransport = require("nodemailer-sendgrid-transport");
+  //using sendgrid as transport, but can use any transport.
+  let send_grid = {
+    service: "SendGrid",
+    auth: {
+      api_key: process.env.SEND_GRID_API_KEY
+    }
+  };
+  let mailer = nodemailer.createTransport(sgTransport(send_grid));
+  mailer.use("compile", mailhbs(options));
+  mailer.sendMail(
+    {
+      from: "mkatenolan@gmail.com",
+      to: email,
+      subject: "Any Subject",
+      template: "email_body",
+      context: {
+        test: "THIS WORKSSSS",
+        // plan_name: data[1].meta.rows.plan_name,
+        // plan_days: data[1].meta.rows.plan_days
+      }
+    },
+    (error, response) => {
+      if (error) console.log(error);
+      else console.log(response, "mail sent to ");
+
+      mailer.close();
+    }
+  );
+};
+
+
+// module.exports = data
