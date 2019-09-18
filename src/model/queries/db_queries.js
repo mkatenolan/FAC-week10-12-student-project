@@ -96,12 +96,12 @@ const addIngredientToRecipe = (recipeId, ingredientName) => {
 const addPlanToDatabase = mealPlanOb => {
   let planDaysCounter = mealPlanOb.plan_days;
   let x = 0;
+  console.log(typeof addIngredients);
   while (x < planDaysCounter) {
     mealPlanOb[x].extendedIngredients.forEach(ingredient => {
       addIngredients(ingredient.name);
     });
-    // console.log(mealPlanOb[x]);
-    // addRecipe(mealPlanOb[x]);
+    addRecipe(mealPlanOb[x]);
     x++;
   }
   // addNewPlan(id?, mealPlanOb.plan_name, mealPlanOb.plan_days)
