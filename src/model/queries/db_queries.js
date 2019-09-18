@@ -60,9 +60,9 @@ const getSimilarRecipes = (firstPick, secondPick) => {
 
 // Query for adding a new plan - title and days - into 'plans' table
 
-const addNewPlan = (id, planName, planDays) => {
+const addNewPlan = (planName, planDays) => {
   return connection.query(
-    `INSERT INTO plans (id, plan_name, plan_days) VALUES (${id}, '${planName}', ${planDays});`
+    `INSERT INTO plans (plan_name, plan_days) VALUES ('${planName}', ${planDays});`
   );
 };
 
@@ -93,18 +93,24 @@ const addIngredientToRecipe = (recipeId, ingredientName) => {
   );
 };
 
-const addPlanToDatabase = mealPlanOb => {
+
+const addPlanToDatabase = async mealPlanOb => {
   let planDaysCounter = mealPlanOb.plan_days;
   let x = 0;
-  console.log(typeof addIngredients);
+  console.log({mealPlanOb});
   while (x < planDaysCounter) {
+
     mealPlanOb[x].extendedIngredients.forEach(ingredient => {
-      addIngredients(ingredient.name);
+     addIngredients(ingredient.name)
+      .then(addIngredientToRecipe(mealPlanOb[x].id, ingredient.name))
     });
+
     addRecipe(mealPlanOb[x]);
+
     x++;
   }
-  // addNewPlan(id?, mealPlanOb.plan_name, mealPlanOb.plan_days)
+    addNewPlan(mealPlanOb.plan_name, mealPlanOb.plan_days);
+
 };
 
 
