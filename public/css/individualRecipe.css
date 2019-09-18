@@ -1,0 +1,17 @@
+
+.individual-recipe__section{
+
+  background-color: #F7F4F3;
+  padding-bottom: 2em;
+}
+
+.headers__container__individual-recipe{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.instructions__individual-recipe{
+  padding: 1.5em;
+
+}
