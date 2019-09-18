@@ -1,6 +1,7 @@
 // const recipeUrl = "https://api.spoonacular.com/recipes/random?number=5&apiKey=fa31546b9db54de4ac0d528cc21fb947";
 const fetch = require('node-fetch');
-const apiKey = 'ac1e1c1767144e209bd7a0c6b23e1fbd' //  fa31546b9db54de4ac0d528cc21fb947
+const apiKey = 'dfc52b1bc87a4054b99d6655d10c4206'
+// 'ac1e1c1767144e209bd7a0c6b23e1fbd' //  fa31546b9db54de4ac0d528cc21fb947
 
 const getRecipesApi = () => {
   const recipeUrl = `https://api.spoonacular.com/recipes/random?number=5&apiKey=${apiKey}`;

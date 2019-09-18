@@ -1,0 +1,50 @@
+.meal-plan-container {
+    display: flex;
+    border: 2px solid red;
+    height: 15vh;
+    margin: 1em;
+    border-radius: 15%;
+
+}
+
+.heading-meal-plans{
+    display: flex;
+    justify-content: space-around;
+    align-items : center;
+
+    
+}
+
+
+.btn__meal-plans__new-plan {
+    width: 5em;
+    font-size: 1em;
+    font-weight: bold;
+
+}
+
+.meal-plan-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+
+}
+/* meal plan header */
+.info__container{
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction:row;
+}
+.paragraph__ meal-plan__days{
+    width:2em;
+}
+
+ .header__meal-plan{
+
+    font-size: 2em;
+    padding-right:1em;
+    margin:0;
+
+} 
+

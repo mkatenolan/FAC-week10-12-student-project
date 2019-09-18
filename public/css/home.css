@@ -15,15 +15,19 @@ body {
 
 }
 
-/* .header {
+.header {
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
 
-}  */
+
+}
 
 .background{
   height: 20vh;
   background-image: url("../assets/food-background.jpeg");
   background-size: 100%;
-  backround-attachment: fixed;
+  background-attachment: fixed;
 }
 
 .onboarding__main-section {
@@ -71,8 +75,8 @@ body {
 
 /* all meal plans page */
 
-.meal-plans__main-section {
+/* .meal-plans__main-section {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(8, 1fr);
-}
+} */
