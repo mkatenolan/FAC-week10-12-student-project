@@ -58,6 +58,9 @@ const getSimilarRecipes = (firstPick, secondPick) => {
   );
 };
 
+
+
+
 // Query for adding a new plan - title and days - into 'plans' table
 
 const addNewPlan = (id, planName, planDays) => {
@@ -79,6 +82,13 @@ const addIngredients = ingredientName => {
     `INSERT INTO ingredients (ingredient_name) VALUES (${ingredientName}) ON CONFLICT DO NOTHING`
   );
 };
+
+const addRecipe = recipeObject => {
+  return connection.query(
+    `INSERT INTO recipes (id, recipe_name, instructions, cooking_time, health_score)
+    VALUES (${recipeObject.id}, ${recipeObject.recipeName}, ${recipeObject.instructions}, ${recipeObject.cookingTime}, ${recipeObject.healthScore}) ON CONFLICT DO NOTHING`
+  );
+}
 
 const addPlanToDatabase = mealPlanOb => {};
 

@@ -197,9 +197,7 @@ exports.confirmPlan = (req, data) => {
     .then(mealPlanOb => {
       mealPlanOb.plan_name = planName;
       mealPlanOb.plan_days = recipeIdsArr.length;
+      console.log({mealPlanOb});
       return mealPlanOb;
     })
-    .then(mealPlanOb => {
-      queries.
-    });
 };
