@@ -101,11 +101,13 @@ const addPlanToDatabase = mealPlanOb => {
       addIngredients(ingredient.name);
     });
     // console.log(mealPlanOb[x]);
-
-    addRecipe(mealPlanOb[x]);
+    // addRecipe(mealPlanOb[x]);
     x++;
   }
+  // addNewPlan(id?, mealPlanOb.plan_name, mealPlanOb.plan_days)
 };
+
+
 
 module.exports = {
   getAllPlans,
