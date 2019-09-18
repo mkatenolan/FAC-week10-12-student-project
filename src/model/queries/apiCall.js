@@ -1,10 +1,10 @@
 const fetch = require("node-fetch");
-const apiKey = "fa31546b9db54de4ac0d528cc21fb947"; //  fa31546b9db54de4ac0d528cc21fb947   fa31546b9db54de4ac0d528cc21fb947  fb03885fbce849f69a9a7c01213c16db
+const apiKey = "fb03885fbce849f69a9a7c01213c16db"; //  fa31546b9db54de4ac0d528cc21fb947   fa31546b9db54de4ac0d528cc21fb947
 
-const zlib = require('zlib');
+const zlib = require("zlib");
 let gzip = zlib.createGzip();
-const fs = require('fs');
-let out = fs.createWriteStream('./output.text.gz')
+const fs = require("fs");
+let out = fs.createWriteStream("./output.text.gz");
 
 const getRecipesApi = () => {
   const recipeUrl = `https://api.spoonacular.com/recipes/random?number=5&apiKey=${apiKey}`;
@@ -73,33 +73,27 @@ const getSimilarsApi = arr => {
     .catch(err => console.log(err));
 };
 
-
-const getRecipesBulkApi = async arr => {
-  arr.shift();
-  arr.join(',');
-  let recipesUrl = arr.join(",");
-  const url = `https://api.spoonacular.com/recipes/informationBulk?ids=${recipesUrl}&apiKey=${apiKey}`;
+const getRecipesBulkApi = async idString => {
+  const url = `https://api.spoonacular.com/recipes/informationBulk?ids=${idString}&apiKey=${apiKey}`;
   try {
     let response = await fetch(url);
     let json = await response.json();
     let recipeDetails = {};
-      for (let i = 0; i < json.length; i++) {
-        recipeDetails[i] = {};
-        recipeDetails[i].id = json[i].id;
-        recipeDetails[i].recipeName = json[i].title;
-        recipeDetails[i].cookingTime = json[i].cookingMinutes;
-        recipeDetails[i].healthScore = json[i].healthScore;
-        recipeDetails[i].instructions = json[i].instructions;
-        recipeDetails[i].extendedIngredients = json[i].extendedIngredients;
-        recipeDetails[i].imageUrl = json[i].image;
-      }
-      return recipeDetails;
-  }
-  catch (error) {
+    for (let i = 0; i < json.length; i++) {
+      recipeDetails[i] = {};
+      recipeDetails[i].id = json[i].id;
+      recipeDetails[i].recipeName = json[i].title;
+      recipeDetails[i].cookingTime = json[i].cookingMinutes;
+      recipeDetails[i].healthScore = json[i].healthScore;
+      recipeDetails[i].instructions = json[i].instructions;
+      recipeDetails[i].extendedIngredients = json[i].extendedIngredients;
+      recipeDetails[i].imageUrl = json[i].image;
+    }
+    return recipeDetails;
+  } catch (error) {
     console.log(error);
   }
-}
-
+};
 
 module.exports = {
   getRecipesApi,

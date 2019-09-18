@@ -23,16 +23,15 @@ const getRecipes = planId => {
 // Query for displaying recipe info on single recipe page
 
 const getSingleRecipe = recipeId => {
-  return connection.query(
-    `SELECT * FROM recipes WHERE id = ${recipeId};`
-  );
+  return connection.query(`SELECT * FROM recipes WHERE id = ${recipeId};`);
 };
 
 // Query for getting ingredients for individual recipes
 
 const getIngredients = recipeId => {
   return connection.query(
-    `SELECT ingredient_name FROM ingredients INNER JOIN junction_recipes_ingredients ON ingredients.id = junction_recipes_ingredients.ingredient_id WHERE recipe_id = ${recipeId};`)
+    `SELECT ingredient_name FROM ingredients INNER JOIN junction_recipes_ingredients ON ingredients.id = junction_recipes_ingredients.ingredient_id WHERE recipe_id = ${recipeId};`
+  );
 };
 
 // Query for getting shopping list for a specific meal plan
@@ -74,6 +73,14 @@ const addRecipeToPlan = (planId, recipeId) => {
     `INSERT INTO junction_plans_recipes (plan_id, recipe_id) VALUES (${planId}, ${recipeId})`
   );
 };
+
+const addIngredients = ingredientName => {
+  return connection.query(
+    `INSERT INTO ingredients (ingredient_name) VALUES (${ingredientName}) ON CONFLICT DO NOTHING`
+  );
+};
+
+const addPlanToDatabase = mealPlanOb => {};
 
 module.exports = {
   getAllPlans,
