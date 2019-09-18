@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const apiKey = "fb03885fbce849f69a9a7c01213c16db"; //  fa31546b9db54de4ac0d528cc21fb947   fa31546b9db54de4ac0d528cc21fb947
+const apiKey = "dfc52b1bc87a4054b99d6655d10c4206"; // dfc52b1bc87a4054b99d6655d10c4206  fb03885fbce849f69a9a7c01213c16db   fa31546b9db54de4ac0d528cc21fb947
 
 const zlib = require("zlib");
 let gzip = zlib.createGzip();
@@ -83,7 +83,11 @@ const getRecipesBulkApi = async idString => {
       recipeDetails[i] = {};
       recipeDetails[i].id = json[i].id;
       recipeDetails[i].recipeName = json[i].title;
-      recipeDetails[i].cookingTime = json[i].cookingMinutes;
+      if (json[i].cookingMinutes === undefined)
+        recipeDetails[i].cookingTime = 0;
+      else {
+        recipeDetails[i].cookingTime = json[i].cookingMinutes;
+      }
       recipeDetails[i].healthScore = json[i].healthScore;
       recipeDetails[i].instructions = json[i].instructions;
       recipeDetails[i].extendedIngredients = json[i].extendedIngredients;

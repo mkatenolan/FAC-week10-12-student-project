@@ -62,7 +62,7 @@ const getSimilarRecipes = (firstPick, secondPick) => {
 
 const addNewPlan = (id, planName, planDays) => {
   return connection.query(
-    `INSERT INTO plans (id, plan_name, plan_days) VALUES (${id}, ${planName}, ${planDays});`
+    `INSERT INTO plans (id, plan_name, plan_days) VALUES (${id}, '${planName}', ${planDays});`
   );
 };
 
@@ -76,20 +76,20 @@ const addRecipeToPlan = (planId, recipeId) => {
 
 const addIngredients = ingredientName => {
   return connection.query(
-    `INSERT INTO ingredients (ingredient_name) VALUES (${ingredientName}) ON CONFLICT DO NOTHING`
+    `INSERT INTO ingredients (ingredient_name) VALUES ('${ingredientName}') ON CONFLICT DO NOTHING`
   );
 };
 
 const addRecipe = recipeObject => {
   return connection.query(
     `INSERT INTO recipes (id, recipe_name, instructions, cooking_time, health_score)
-    VALUES (${recipeObject.id}, ${recipeObject.recipeName}, ${recipeObject.instructions}, ${recipeObject.cookingTime}, ${recipeObject.healthScore}) ON CONFLICT DO NOTHING`
+    VALUES (${recipeObject.id}, '${recipeObject.recipeName}', '${recipeObject.instructions}', ${recipeObject.cookingTime}, ${recipeObject.healthScore}) ON CONFLICT DO NOTHING`
   );
 };
 
 const addIngredientToRecipe = (recipeId, ingredientName) => {
   return connection.query(
-    `INSERT INTO junction_recipes_ingredients (recipe_id, ingredient_id) VALUES (${recipeId}, (SELECT id FROM ingredients WHERE ingredient_name = ${ingredientName}))`
+    `INSERT INTO junction_recipes_ingredients (recipe_id, ingredient_id) VALUES (${recipeId}, (SELECT id FROM ingredients WHERE ingredient_name = '${ingredientName}'))`
   );
 };
 
@@ -100,6 +100,9 @@ const addPlanToDatabase = mealPlanOb => {
     mealPlanOb[x].extendedIngredients.forEach(ingredient => {
       addIngredients(ingredient.name);
     });
+    // console.log(mealPlanOb[x]);
+
+    addRecipe(mealPlanOb[x]);
     x++;
   }
 };
