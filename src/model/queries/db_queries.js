@@ -23,16 +23,15 @@ const getRecipes = planId => {
 // Query for displaying recipe info on single recipe page
 
 const getSingleRecipe = recipeId => {
-  return connection.query(
-    `SELECT * FROM recipes WHERE id = ${recipeId};`
-  );
+  return connection.query(`SELECT * FROM recipes WHERE id = ${recipeId};`);
 };
 
 // Query for getting ingredients for individual recipes
 
 const getIngredients = recipeId => {
   return connection.query(
-    `SELECT ingredient_name FROM ingredients INNER JOIN junction_recipes_ingredients ON ingredients.id = junction_recipes_ingredients.ingredient_id WHERE recipe_id = ${recipeId};`)
+    `SELECT ingredient_name FROM ingredients INNER JOIN junction_recipes_ingredients ON ingredients.id = junction_recipes_ingredients.ingredient_id WHERE recipe_id = ${recipeId};`
+  );
 };
 
 // Query for getting shopping list for a specific meal plan
@@ -63,7 +62,7 @@ const getSimilarRecipes = (firstPick, secondPick) => {
 
 const addNewPlan = (id, planName, planDays) => {
   return connection.query(
-    `INSERT INTO plans (id, plan_name, plan_days) VALUES (${id}, ${planName}, ${planDays});`
+    `INSERT INTO plans (id, plan_name, plan_days) VALUES (${id}, '${planName}', ${planDays});`
   );
 };
 
@@ -75,6 +74,41 @@ const addRecipeToPlan = (planId, recipeId) => {
   );
 };
 
+const addIngredients = ingredientName => {
+  return connection.query(
+    `INSERT INTO ingredients (ingredient_name) VALUES ('${ingredientName}') ON CONFLICT DO NOTHING`
+  );
+};
+
+const addRecipe = recipeObject => {
+  return connection.query(
+    `INSERT INTO recipes (id, recipe_name, instructions, cooking_time, health_score)
+    VALUES (${recipeObject.id}, '${recipeObject.recipeName}', '${recipeObject.instructions}', ${recipeObject.cookingTime}, ${recipeObject.healthScore}) ON CONFLICT DO NOTHING`
+  );
+};
+
+const addIngredientToRecipe = (recipeId, ingredientName) => {
+  return connection.query(
+    `INSERT INTO junction_recipes_ingredients (recipe_id, ingredient_id) VALUES (${recipeId}, (SELECT id FROM ingredients WHERE ingredient_name = '${ingredientName}'))`
+  );
+};
+
+const addPlanToDatabase = mealPlanOb => {
+  let planDaysCounter = mealPlanOb.plan_days;
+  let x = 0;
+  console.log(typeof addIngredients);
+  while (x < planDaysCounter) {
+    mealPlanOb[x].extendedIngredients.forEach(ingredient => {
+      addIngredients(ingredient.name);
+    });
+    addRecipe(mealPlanOb[x]);
+    x++;
+  }
+  // addNewPlan(id?, mealPlanOb.plan_name, mealPlanOb.plan_days)
+};
+
+
+
 module.exports = {
   getAllPlans,
   getSinglePlan,
@@ -85,5 +119,6 @@ module.exports = {
   getRandomRecipes,
   getSimilarRecipes,
   addNewPlan,
-  addRecipeToPlan
+  addRecipeToPlan,
+  addPlanToDatabase
 };

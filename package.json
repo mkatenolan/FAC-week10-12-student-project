@@ -6,7 +6,8 @@
   "scripts": {
     "test": "NODE_ENV=test nyc tape tests/*.test.js | tap-spec",
     "start": "node src/index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "db_init": "node src/model/database/db_init.js"
   },
   "repository": {
     "type": "git",

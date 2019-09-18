@@ -24,7 +24,7 @@ INSERT INTO plans (id, plan_name, plan_days) VALUES
 
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
-  recipe_name VARCHAR(50) NOT NULL UNIQUE,
+  recipe_name VARCHAR(200) NOT NULL UNIQUE,
   instructions TEXT NOT NULL,
   cooking_time INTEGER,
   health_score INTEGER

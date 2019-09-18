@@ -2,10 +2,25 @@
   <h1 class="second-choices__header"> Select up to five more recipes </h1>
   {{!-- {{>recipeList}}
   {{!-- {{>loadMores}} --}}
-  <form class="second-choices__form" action="/mealplans">
-    <input aria-label="Go back" value="Back" class="second-choices__back-button" type="submit" formaction="/newplan">
-    <input aria-label="Save meal plan" value="save" class="second-choices__save-button" type="submit">
 
+  {{#each recipes}}
+
+  <h1 class="recipe__header__{{this.recipeName}}">{{this.recipeName}}</h1>
+  <p class="recipe__cooking__{{this.recipeName}}">Cooking time: {{this.cookingTime}}</p>
+  <p class="recipe__health__{{this.recipeName}}">Health score: {{this.healthScore}}</p>
+  <!-- <img src="{{this.imageUrl}}"> -->
+  <input type="submit" value="Select" class="recipe__select" id="{{this.id}}">
+
+  {{/each}}
+
+  <form class="second-choices__form" action="/submitmealplan" method="POST">
+    <input aria-label="Go back" value="Back" name="back" class="second-choices__back-button" type="submit"
+      formaction="/newplan">
+    <input aria-label="Name meal plan" value="Name plan" name="name plan" placeholder="Name your plan"
+      class="second-choices__name-plan" type="text">
+    <input aria-label="Save meal plan" name="save" value="Save" class="second-choices__save-button" type="submit">
   </form>
   {{>counter}}
 </section>
+
+<script src="js/additionalChoices.js"></script>

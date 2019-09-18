@@ -32,15 +32,15 @@ exports.getMealPlans = (req, res) => {
 };
 
 exports.getAdditionalChoices = (req, res) => {
-// console.log(req.cookies);
   const recipes = {
-    one: req.cookies.recipes.split('+')[1],
-    two:req.cookies.recipes.split('+')[1]
-  }
-  api.getIngredientsApi(recipes.one, recipes.two)
-    .then(ingredients => api.getRecipesApi(ingredients))
+    one: req.cookies.recipes.split("+")[1],
+    two: req.cookies.recipes.split("+")[2]
+  };
+  api
+    .getIngredientsApi(recipes.one, recipes.two)
+    .then(ingredients => api.getSimilarsApi(ingredients))
     .then(result => {
-      res.render("newplanAdditionalChoices", { recipes : result});
+      res.render("newplanAdditionalChoices", { recipes: result });
     })
     .catch(err => {
       res.render("error", {
@@ -82,10 +82,8 @@ exports.uniqueMealPlan = (req, res) => {
 //route to make a db call to get info about each individual recipe
 
 exports.individualRecipe = (req, res) => {
-  console.log("we are in the router function");
-
   let id = parseInt(req.params.id, 10);
-  console.log("this is id", id);
+  // console.log("this is id", id);
   let data = {};
   let p1 = queries.getIngredients(id).then(result => {
     data.ingredients = result;
@@ -98,7 +96,7 @@ exports.individualRecipe = (req, res) => {
 
   Promise.all([p1, p2])
     .then(data => {
-      console.log("this is data", data[1].ingredients.rows);
+      //console.log("this is data", data[1].ingredients.rows);
       res.render("individualRecipe", {
         recipeOverview: data[1].recipeOverview.rows,
         ingredients: data[1].ingredients.rows
@@ -131,7 +129,6 @@ exports.shoppingList = (req, res) => {
 exports.getFiveRecipes = (req, res) => {
   api
     .getRecipesApi()
-    // .then(console.log)
     .then(result => {
       res.render("newPlan", { recipes: result });
     })
@@ -184,4 +181,22 @@ exports.email = (req, res) => {
       mailer.close();
     }
   );
+};
+
+exports.confirmPlan = (req, data) => {
+  let planName = JSON.parse(data).planName;
+  let ids = req.cookies.recipes;
+  let recipeIdsArr = ids.split("+");
+  recipeIdsArr.shift();
+  let recipeIds = recipeIdsArr.join(",");
+  api
+    .getRecipesBulkApi(recipeIds)
+    .then(mealPlanOb => {
+      mealPlanOb.plan_name = planName;
+      mealPlanOb.plan_days = recipeIdsArr.length;
+      return mealPlanOb;
+    })
+    .then(mealPlanOb => {
+      queries.addPlanToDatabase(mealPlanOb);
+    });
 };

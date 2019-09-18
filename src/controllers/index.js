@@ -14,6 +14,11 @@ const dataStreamer = (req, cb) => {
 };
 
 router.get("/", routes.getHome);
+router.post("/submitmealplan", (req, res) => {
+  dataStreamer(req, data => {
+    routes.confirmPlan(req, data);
+  });
+});
 router.get("/mealplans", routes.getMealPlans);
 router.get("/newplan", routes.getFiveRecipes);
 router.get("/newplan-additional-choices", routes.getAdditionalChoices);
