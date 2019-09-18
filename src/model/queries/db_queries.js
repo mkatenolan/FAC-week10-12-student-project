@@ -68,9 +68,9 @@ const addNewPlan = (planName, planDays) => {
 
 // Query for adding a recipe to a plan in junction table
 
-const addRecipeToPlan = (planId, recipeId) => {
+const addRecipeToPlan = (planName, recipeId) => {
   return connection.query(
-    `INSERT INTO junction_plans_recipes (plan_id, recipe_id) VALUES (${planId}, ${recipeId})`
+    `INSERT INTO junction_plans_recipes (plan_id, recipe_id) VALUES ((SELECT id FROM plans WHERE plan_name = '${planName}'), ${recipeId})`
   );
 };
 
@@ -93,27 +93,22 @@ const addIngredientToRecipe = (recipeId, ingredientName) => {
   );
 };
 
-
 const addPlanToDatabase = async mealPlanOb => {
   let planDaysCounter = mealPlanOb.plan_days;
   let x = 0;
-  console.log({mealPlanOb});
+
+  addNewPlan(mealPlanOb.plan_name, mealPlanOb.plan_days);
   while (x < planDaysCounter) {
-
     mealPlanOb[x].extendedIngredients.forEach(ingredient => {
-     addIngredients(ingredient.name)
-      .then(addIngredientToRecipe(mealPlanOb[x].id, ingredient.name))
+      addIngredients(ingredient.name).then(
+        addIngredientToRecipe(mealPlanOb[x].id, ingredient.name)
+      );
     });
-
     addRecipe(mealPlanOb[x]);
-
+    addRecipeToPlan(mealPlanOb.plan_name, mealPlanOb[x].id);
     x++;
   }
-    addNewPlan(mealPlanOb.plan_name, mealPlanOb.plan_days);
-
 };
-
-
 
 module.exports = {
   getAllPlans,
