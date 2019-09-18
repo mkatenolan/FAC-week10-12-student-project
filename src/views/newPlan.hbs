@@ -1,29 +1,33 @@
+<section class="background background__newPlan"></section>
+
 <section>
 
-  <h1 class="new-plan__header"> Pick 2 recipes</h1>
+  <h1 class="header header__new-plan"> Pick 2 recipes</h1>
 
   {{#each recipes}}
-
-  <h1 class="recipe__header__{{this.recipeName}}">{{this.recipeName}}</h1>
-  <p class="recipe__cooking__{{this.recipeName}}">Cooking time: {{this.cookingTime}}</p>
-  <p class="recipe__health__{{this.recipeName}}">Health score: {{this.healthScore}}</p>
-  <img src="{{this.imageUrl}}">
-  <input type="submit" value="Select" class="recipe__select" id="{{this.id}}">
-
+  <div class="container__pick-recipes">
+  <h2 class="recipe-title__newplan">{{this.recipeName}}</h2>
+  <span class="recipe-time__newplan">T {{this.cookingTime}}</span>
+  <span class="recipe-health__newplan">H{{this.healthScore}}</span>
+  <img class="recipe-image__newplan" src="{{this.imageUrl}}">
+  <input class="btn__newplan-select" type="submit" value="Select" id="{{this.id}}">
+</div>
   {{/each}}
 
 
 
   <form action="/mealplans" class="newplan__nav-buttons">
-    <input type="submit" value="Back" class="newplan__nav-buttons__back">
-    <input type="submit" value="Next" formaction="/newplan-additional-choices" class="newplan__nav_buttons__next">
+    <div class="container__next-back-buttons">
+    <input class="btn__back__new-plan" type="submit" value="Back">
+    <input class="btn__next__new-plan" type="submit" value="Next" formaction="/newplan-additional-choices">
+  </div>
   </form>
 
 
 
   {{>loadMore}}
 
-  {{>counter}}
+  <!-- {{>counter}} -->
 
 
 </section>

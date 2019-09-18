@@ -1,24 +1,27 @@
 <section>
-    <h1 class="unique-meal-plan__header"> Plan name: {{header.plan_name}}</h1>
-    <h2 class="unique-meal-plan__days"> Days: {{header.plan_days}}</h2>
+  <div class="headers__unique-meal-plan__container">
+    <h1 class="unique-meal-plan__header"> {{header.plan_name}}</h1>
+    <h2 class="unique-meal-plan__days"> {{header.plan_days}} day plan</h2>
 
-
+</div>
     <a class="unique-meal-plan__shopping-list" href="/shopping-list/{{this.id}}"> Shopping List </a>
 
-    <form action="/sendEmail" class="unique-meal-plan__form" method="POST">
+    <form action="/sendEmail" class="form form__unique-meal-plan" method="POST">
         <label for="email-field">Enter your email and we'll send your meal plan!!</label>
         <input class="email-input-field" id="email-field" name="email" type="text" placeholder="enter your email">
         <input type="submit" name="submit" value="Email" class="unique-meal-plan__form__email">
     </form>
 
     {{#each meal_plan_recipe}}
-    <img class="unique-meal-plan__recipe-image{{this.recipe_name}}" src="{{this.img}}">
-    <h1 class="unique-meal-plan__recipe-title__{{this.recipe_name}}"> {{this.recipe_name}}</h1>
-    <a href="/unique-recipe/{{this.recipe_id}}"> I</a>
-    <span class=" unique-meal-plan__recipe_info__{{this.recipe-name}}__span">
+    <div class="meal_plan_container">
+    <img class="recipe-image unique-meal-plan__recipe-image" src="{{this.img}}">
+    <h1 class="header header__recipe-title"> {{this.recipe_name}}</h1>
+    <a class="btn__recipe_info" href="/unique-recipe/{{this.recipe_id}}"> I</a>
+    <span class="unique-meal-plan__recipe_info">
         Time: {{this.cooking_time}}
         Health score: {{this.health_score}}
     </span>
+  </div>
 
     {{individualRecipe}}
     {{/each}}
