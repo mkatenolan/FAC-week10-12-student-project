@@ -16,8 +16,7 @@ const dataStreamer = (req, cb) => {
 router.get("/", routes.getHome);
 router.post("/submitmealplan", (req, res) => {
   dataStreamer(req, data => {
-    console.log("this is the data", data);
-    console.log("this is the request", req.cookies);
+    routes.confirmPlan(req, data);
   });
 });
 router.get("/mealplans", routes.getMealPlans);

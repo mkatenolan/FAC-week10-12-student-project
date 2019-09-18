@@ -182,3 +182,13 @@ exports.email = (req, res) => {
     }
   );
 };
+
+let urlAsync = "https://api.spoonacular.com/recipes/informationBulk?ids=248097,666234,962537,21911,29139&apiKey=fb03885fbce849f69a9a7c01213c16db"
+exports.confirmPlan = (req, data) => {
+  // console.log(typeof req.cookies.recipes);
+  // console.log(JSON.parse(data).planName);
+  let ids = req.cookies.recipes
+  let recipeIds = ids.split('+');
+  api.getRecipesBulkApi(recipeIds);
+  // let planName = '';
+}
