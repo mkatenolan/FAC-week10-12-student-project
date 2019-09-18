@@ -90,6 +90,12 @@ const addRecipe = recipeObject => {
   );
 }
 
+const addIngredientToRecipe = (recipeId, ingredientName) => {
+  return connection.query(
+    `INSERT INTO junction_recipes_ingredients (recipe_id, ingredient_id) VALUES (${recipeId}, (SELECT id FROM ingredients WHERE ingredient_name = ${ingredientName}))`
+  );
+};
+
 const addPlanToDatabase = mealPlanOb => {};
 
 module.exports = {
