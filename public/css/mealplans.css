@@ -12,7 +12,7 @@
     justify-content: space-around;
     align-items : center;
 
-    
+
 }
 
 
@@ -26,14 +26,13 @@
 .meal-plan-container {
     display: flex;
     justify-content: center;
-    flex-direction: column; 
+    flex-direction: column;
 
 }
 /* meal plan header */
 .info__container{
     display:flex;
-    justify-content: center; 
-    align-items: center;
+    justify-content: space-around; 
     flex-direction:row;
 }
 .paragraph__ meal-plan__days{
@@ -46,5 +45,4 @@
     padding-right:1em;
     margin:0;
 
-} 
-
+}
