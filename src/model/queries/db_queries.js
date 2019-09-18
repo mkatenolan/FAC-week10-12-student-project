@@ -58,9 +58,6 @@ const getSimilarRecipes = (firstPick, secondPick) => {
   );
 };
 
-
-
-
 // Query for adding a new plan - title and days - into 'plans' table
 
 const addNewPlan = (id, planName, planDays) => {
@@ -88,7 +85,7 @@ const addRecipe = recipeObject => {
     `INSERT INTO recipes (id, recipe_name, instructions, cooking_time, health_score)
     VALUES (${recipeObject.id}, ${recipeObject.recipeName}, ${recipeObject.instructions}, ${recipeObject.cookingTime}, ${recipeObject.healthScore}) ON CONFLICT DO NOTHING`
   );
-}
+};
 
 const addIngredientToRecipe = (recipeId, ingredientName) => {
   return connection.query(
@@ -96,7 +93,16 @@ const addIngredientToRecipe = (recipeId, ingredientName) => {
   );
 };
 
-const addPlanToDatabase = mealPlanOb => {};
+const addPlanToDatabase = mealPlanOb => {
+  let planDaysCounter = mealPlanOb.plan_days;
+  let x = 0;
+  while (x < planDaysCounter) {
+    mealPlanOb[x].extendedIngredients.forEach(ingredient => {
+      addIngredients(ingredient.name);
+    });
+    x++;
+  }
+};
 
 module.exports = {
   getAllPlans,
@@ -108,5 +114,6 @@ module.exports = {
   getRandomRecipes,
   getSimilarRecipes,
   addNewPlan,
-  addRecipeToPlan
+  addRecipeToPlan,
+  addPlanToDatabase
 };

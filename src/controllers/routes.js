@@ -183,10 +183,7 @@ exports.email = (req, res) => {
   );
 };
 
-let urlAsync =
-  "https://api.spoonacular.com/recipes/informationBulk?ids=248097,666234,962537,21911,29139&apiKey=fb03885fbce849f69a9a7c01213c16db";
 exports.confirmPlan = (req, data) => {
-  // console.log(typeof req.cookies.recipes);
   let planName = JSON.parse(data).planName;
   let ids = req.cookies.recipes;
   let recipeIdsArr = ids.split("+");
@@ -197,7 +194,9 @@ exports.confirmPlan = (req, data) => {
     .then(mealPlanOb => {
       mealPlanOb.plan_name = planName;
       mealPlanOb.plan_days = recipeIdsArr.length;
-      console.log({mealPlanOb});
       return mealPlanOb;
     })
+    .then(mealPlanOb => {
+      queries.addPlanToDatabase(mealPlanOb);
+    });
 };
