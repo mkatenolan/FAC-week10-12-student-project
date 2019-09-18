@@ -48,3 +48,14 @@
   justify-self: center;
 
 }
+
+.container__next-back-buttons{
+  display: flex;
+  justify-content: space-around;
+}
+
+.form__newplan__load-more{
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+}

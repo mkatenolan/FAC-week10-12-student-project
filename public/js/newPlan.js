@@ -1,6 +1,8 @@
 document.cookie = 'recipes='
-document.querySelectorAll('.recipe__select').forEach(button => {
+document.querySelectorAll('.btn__newplan-select').forEach(button => {
+
   button.addEventListener('click', (e) => {
+    console.log("This is event listener");
     if (document.cookie.includes(button.id)) {
       let oldString = document.cookie;
       let newString = oldString.replace(`+${button.id}`, "");
@@ -15,8 +17,8 @@ document.querySelectorAll('.recipe__select').forEach(button => {
   })
 });
 
-document.querySelector('.newplan__nav_buttons__next').addEventListener('click', (e) => {
-  if (document.cookie.split('+').length !== 3) { 
+document.querySelector('.btn__next__new-plan').addEventListener('click', (e) => {
+  if (document.cookie.split('+').length !== 3) {
     e.preventDefault();
     window.alert("Please select two recipes");
   }

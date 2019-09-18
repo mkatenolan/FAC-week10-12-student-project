@@ -32,7 +32,7 @@ exports.getMealPlans = (req, res) => {
 };
 
 exports.getAdditionalChoices = (req, res) => {
-
+// console.log(req.cookies);
   const recipes = {
     one: req.cookies.recipes.split('+')[1],
     two:req.cookies.recipes.split('+')[1]
