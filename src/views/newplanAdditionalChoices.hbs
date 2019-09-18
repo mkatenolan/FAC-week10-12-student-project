@@ -1,26 +1,28 @@
-<section>
-  <h1 class="second-choices__header"> Select up to five more recipes </h1>
+<section class="background background__img"></section>
+
+  <h1 class="header header__second-choices"> Select up to five more recipes </h1>
   {{!-- {{>recipeList}}
   {{!-- {{>loadMores}} --}}
 
   {{#each recipes}}
-
-  <h1 class="recipe__header__{{this.recipeName}}">{{this.recipeName}}</h1>
-  <p class="recipe__cooking__{{this.recipeName}}">Cooking time: {{this.cookingTime}}</p>
-  <p class="recipe__health__{{this.recipeName}}">Health score: {{this.healthScore}}</p>
-  <!-- <img src="{{this.imageUrl}}"> -->
-  <input type="submit" value="Select" class="recipe__select" id="{{this.id}}">
+<div class="container__pick-more-recipes">
+  <h2 class="recipe__header">{{this.recipeName}}</h2>
+  <p class="recipe__cooking">Cooking time: {{this.cookingTime}}</p>
+  <p class="recipe__health">Health score: {{this.healthScore}}</p>
+  <img src="{{this.imageUrl}}" class="recipe-image__additional-plan">
+  <input type="submit" value="Select" class="btn recipe__select" id="{{this.id}}">
+</div>
 
   {{/each}}
 
   <form class="second-choices__form" action="/submitmealplan" method="POST">
-    <input aria-label="Go back" value="Back" name="back" class="second-choices__back-button" type="submit"
+    <input aria-label="Go back" value="Back" name="back" class="btn second-choices__back-button" type="submit"
       formaction="/newplan">
     <input aria-label="Name meal plan" value="Name plan" name="name plan" placeholder="Name your plan"
       class="second-choices__name-plan" type="text">
-    <input aria-label="Save meal plan" name="save" value="Save" class="second-choices__save-button" type="submit">
+    <input aria-label="Save meal plan" name="save" value="Save" class="btn second-choices__save-button" type="submit">
   </form>
-  {{>counter}}
+  {{!-- {{>counter}} --}}
 </section>
 
 <script src="js/additionalChoices.js"></script>

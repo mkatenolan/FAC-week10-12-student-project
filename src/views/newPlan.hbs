@@ -10,7 +10,7 @@
   <span class="recipe-time__newplan">T {{this.cookingTime}}</span>
   <span class="recipe-health__newplan">H{{this.healthScore}}</span>
   <img class="recipe-image__newplan" src="{{this.imageUrl}}">
-  <input class="btn__newplan-select" type="submit" value="Select" id="{{this.id}}">
+  <input class="btn btn__newplan-select" type="submit" value="Select" id="{{this.id}}">
 </div>
   {{/each}}
 
@@ -18,16 +18,16 @@
 
   <form action="/mealplans" class="newplan__nav-buttons">
     <div class="container__next-back-buttons">
-    <input class="btn__back__new-plan" type="submit" value="Back">
-    <input class="btn__next__new-plan" type="submit" value="Next" formaction="/newplan-additional-choices">
+    <input class="btn btn__back__new-plan" type="submit" value="Back">
+    <input class="btn btn__next__new-plan" type="submit" value="Next" formaction="/newplan-additional-choices">
   </div>
   </form>
 
 
 
   {{>loadMore}}
-
-  <!-- {{>counter}} -->
+{{!-- 
+  {{>counter}} --}}
 
 
 </section>
