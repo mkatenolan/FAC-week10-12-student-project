@@ -68,8 +68,8 @@ const getSimilarsApi = arr => {
         fiveMore[i] = {};
         fiveMore[i].id = data[i].id;
         fiveMore[i].recipeName = data[i].title;
-        // fiveMore[i].cookingTime = data[i].cookingMinutes;
-        // fiveMore[i].healthScore = data[i].healthScore;
+        //fiveMore[i].cookingTime = data[i].cookingMinutes;
+        //fiveMore[i].healthScore = data[i].healthScore;
         fiveMore[i].imageUrl = data[i].image;
       }
       //console.log({ fiveMore });
