@@ -93,6 +93,8 @@ const addIngredientToRecipe = (recipeId, ingredientName) => {
   );
 };
 
+let ingredient = "black pepper";
+
 const addPlanToDatabase = async mealPlanOb => {
   let planDaysCounter = mealPlanOb.plan_days;
   let x = 0;
@@ -100,12 +102,22 @@ const addPlanToDatabase = async mealPlanOb => {
   addNewPlan(mealPlanOb.plan_name, mealPlanOb.plan_days);
   while (x < planDaysCounter) {
     mealPlanOb[x].extendedIngredients.forEach(ingredient => {
-      addIngredients(ingredient.name).then(
-        addIngredientToRecipe(mealPlanOb[x].id, ingredient.name)
-      );
+      addIngredients(ingredient.name)
+        .then(addIngredientToRecipe(mealPlanOb[x].id, ingredient.name))
+        .catch(err => {
+          console.log(err);
+        });
     });
-    addRecipe(mealPlanOb[x]);
-    addRecipeToPlan(mealPlanOb.plan_name, mealPlanOb[x].id);
+
+    let p1 = addRecipe(mealPlanOb[x]);
+    let p2 = addRecipeToPlan(mealPlanOb.plan_name, mealPlanOb[x].id);
+
+    Promise.all([p1, p2])
+      .then(console.log)
+      .catch(err => {
+        console.log(err);
+      });
+
     x++;
   }
 };
