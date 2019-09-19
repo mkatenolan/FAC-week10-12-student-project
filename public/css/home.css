@@ -7,14 +7,13 @@ body {
 }
 
 .btn {
-  background: none;
-  width: 5em;
-  height: 3em;
-  border-radius: 1em;
+  background-color:#f26157;
+  width: 10em;
+  height: 5em;
+  border-radius: 20%;
   border-style: none;
-  font-size: 1.2em;
-  color: #f26157;
-  border: 2px solid #f26157;
+  color: #F7F4F3;
+
 }
 
 .header {
