@@ -31,10 +31,11 @@ document.querySelectorAll(".recipe__select").forEach(button => {
 });
 
 document
-  .querySelector(".newplan__nav_buttons__next")
+  .querySelector(".second-choices__save-button")
   .addEventListener("click", e => {
-    if (document.cookie.split("+").length !== 5) {
+    console.log(document.cookie.split("+").length);
+    if (document.cookie.split("+").length > 6) {
       e.preventDefault();
-      window.alert("Please select an additional 3 recipes");
+      window.alert("Please select up to three additional recipes");
     }
   });
