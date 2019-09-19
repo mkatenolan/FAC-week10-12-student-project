@@ -3,12 +3,24 @@
     <h2 class="shopping-list__title"> {{unique.title}}</h2>
     <h2 class="shopping-list__days"> {{unique-recipe.days}}</h2>
 
+
+    <h2 class="shopping-list__duplicate-ingredients">Ingredients you can reuse!</h2>
     <ul class="shopping-list__unordered-list">
-        {{#each ingredients}}
+        {{#each duplicateIngredients}}
         <li class="shopping-list__unordered-list__item{{this.ingredient_name}}"> <input type="checkbox">
-            {{ this.ingredient_name}} </li>
+            {{this}} </li>
         {{/each}}
     </ul>
+
+    <h2 class="shopping-list__unique-ingredients"> Unique Ingredients</h2>
+    <ul class="shopping-list__unordered-list">
+        {{#each uniqueIngredients}}
+        <li class="shopping-list__unordered-list__item{{this.ingredient_name}}"> <input type="checkbox">
+            {{this}} </li>
+        {{/each}}
+    </ul>
+
+
 
     {{!-- <ul>
         {{#each unique-recipe.ingredient}}
