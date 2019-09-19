@@ -7,15 +7,18 @@ body {
 }
 
 .btn {
-  background-color:#F0eebd;
+  background-color:#814256;
   width: 10em;
   height: 5em;
   border-radius: 20%;
   border-style: none;
+  color: #F7F4F3;
 
 }
 
 .header {
+  margin-top:0;
+  padding-top: 1em;
   font-size: 3em;
   font-weight: bold;
   text-align: center;
@@ -38,12 +41,19 @@ body {
   background-color: #F7F4F3;
   padding-bottom: 2em;
 
+
 }
+/* .onboarding__logo{
+  grid-column: 2/span 4;
+  grid-row: 1/span 1;
+  width: 80%;
+} */
 
 .header__onboarding{
   grid-column: 3 / span 2;
   grid-row: 1 / span 1;
   justify-self: center;
+  font-size: 2.5em;
 }
 
 .paragraph__onboarding__one{
@@ -71,6 +81,7 @@ body {
   grid-column: 2 / span 4;
   grid-row: 8 / span 1;
 }
+
 
 
 /* all meal plans page */
