@@ -1,11 +1,12 @@
-<section>
-    <h1 class="shopping-list__header">Shopping List</h1>
+<section class="background background__shoppingList"></section>
+<section class="shopping-list-container">
+    <h1 class="header header__shopping-list">Shopping List</h1>
     <h2 class="shopping-list__title"> {{unique.title}}</h2>
     <h2 class="shopping-list__days"> {{unique-recipe.days}}</h2>
 
-    <ul class="shopping-list__unordered-list">
+    <ul class="list shopping-list__unordered-list">
         {{#each ingredients}}
-        <li class="shopping-list__unordered-list__item{{this.ingredient_name}}"> <input type="checkbox">
+        <li class="list shopping-list__unordered-list__item{{this.ingredient_name}}"> <input type="checkbox">
             {{ this.ingredient_name}} </li>
         {{/each}}
     </ul>
@@ -16,10 +17,11 @@
         {{/each}}
     </ul> --}}
 
-
-    <form class="shopping-list__form" action="/mealplans">
-        <input aria-label="Back to see all recipes" type="submit" value="Back" class="shopping-list__form__back">
+<div class="form-form">
+        <form class="form shopping-list__form" action="/mealplans">
+        <input aria-label="Back to see all recipes" type="submit" value="Back" class="btn shopping-list__form__back">
     </form>
+</div>
 
 
 </section>

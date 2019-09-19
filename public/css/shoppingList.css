@@ -1,0 +1,37 @@
+.shopping-list-container {
+     background-color: #D8D8D8; 
+     display: flex;
+     display:center;
+     width: 70%;
+     height: auto;
+     margin: 1em;
+     border-radius: 20%;
+     padding: 1em;
+
+ }
+
+.header__shopping-list{
+    align-items: center;
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+    /* display:flex; */
+    /* align-content: center; */
+
+}
+
+.shopping-list__unordered-list {
+    list-style: none;
+/* 
+  list-style-position: outside; */
+
+  }
+
+.form-form{
+display: flex;
+align-items: flex-end;
+
+  }
+
