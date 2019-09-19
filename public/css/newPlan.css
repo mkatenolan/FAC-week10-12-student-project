@@ -29,38 +29,55 @@
 }
 
 .recipe-time__newplan{
-  grid-column: 5/span 2;
+  grid-column: 6/span 1;
   grid-row: 2/span 2;
   align-self: center;
   justify-self: center;
+  font-size:1.5em;
 }
 
 .recipe-health__newplan{
-  grid-column: 3/ span 2;
+  grid-column: 4/ span 1;
   grid-row: 2/span 2;
   align-self: center;
   justify-self: center;
+  font-size:1.5em;
 }
 
 .btn__newplan-select{
   grid-column: 3/span 3;
   grid-row: 4/span 1;
-  width: 10em;
-  height: 4em;
+  width: 8em;
+  height: 3em;
   align-self: center;
   justify-self: center;
 
 }
 
+.image__timer-icon{
+  max-width: 2em;
+  grid-column: 5/span 1;
+  grid-row: 2/span 2;
+  align-self: center;
+  justify-self: center;
+}
+.image__health-icon{
+  margin-left: 1em;
+  grid-column: 3/ span 1;
+  grid-row: 2/span 2;
+  max-width: 2em;
+  align-self: center;
+  justify-self: center;
+}
 
 .btn__back__new-plan{
-  height: 4em;
-  width:10em;
+  height:3em;
+  width:8em;
 }
 
 .btn__next__new-plan{
-  height: 4em;
-  width:10em;
+  height:3em;
+  width:8em;
 }
 .container__next-back-buttons{
   display: flex;

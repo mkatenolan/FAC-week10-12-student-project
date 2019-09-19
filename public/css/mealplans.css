@@ -24,7 +24,7 @@
 
 .btn__meal-plans__new-plan {
     width: 5em;
-    height: 4em;
+    height: 3.5em;
     font-size: 1em;
     font-weight: bold;
 }
@@ -44,14 +44,21 @@
     justify-content: space-around;
     flex-direction:row;
 }
-.paragraph__ meal-plan__days{
-    width:2em;
+.paragraph__meal-plan__days{
+    margin-top: 0.5em;
+
+    text-decoration: italic;
 }
 
  .header__meal-plan{
-
-    font-size: 2em;
+    /* font-size: 1.8em; */
     padding-right:1em;
     margin:0;
+}
 
+.link__meal-plan{
+  text-align: center;
+    text-decoration: none;
+    height: 2em;
+    width: 8em
 }

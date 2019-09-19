@@ -50,8 +50,8 @@
 .recipe__select{
   grid-column: 3/span 3;
   grid-row: 4/span 1;
-  width: 10em;
-  height: 4em;
+  width: 8em;
+  height: 3em;
   align-self: center;
   justify-self: center;
 
@@ -59,12 +59,14 @@
 
 .second-choices__back-button{
   margin: 1em;
-  height: 4.5em;
+  height: 3em;
+  width:7em;
 
 }
 .second-choices__save-button{
   margin:1em;
-  height: 4.5em;
+  height: 3em;
+  width: 7em;
 }
 
 

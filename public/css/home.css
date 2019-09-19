@@ -2,19 +2,23 @@
 
 body {
   margin: 0;
-  font-family: 'Overlock', cursive;
+  font-family: 'Nobile', sans-serif;
+  font-size: 1em;
 
 }
 
 .btn {
+  font-family: 'Nobile', sans-serif;
   cursor:pointer;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
   background-color:#F26157;
   width: 10em;
-  height: 5em;
+  height: 3em;
   border-radius: 1em;
   border-style: none;
   color: #F7F4F3;
+  font-size: 1em;
+  font-weight: bold;
 
 }
 
@@ -27,7 +31,7 @@ body {
 .header {
   margin-top:0;
   padding-top: 1em;
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: bold;
   text-align: center;
 
@@ -84,12 +88,23 @@ body {
 
 .form__onboarding__form{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   grid-column: 2 / span 4;
   grid-row: 8 / span 1;
 }
 
+.btn__onboarding__view-plans{
+  margin: 0.5em;
+  font-size: 0.8em;
+  width: 15em;
+}
+
+.btn__onboarding__new-plan{
+    margin: 0.5em;
+    font-size: 0.8em;
+    width: 15em;
+}
 
 
 /* all meal plans page */
