@@ -198,5 +198,6 @@ exports.confirmPlan = (req, data) => {
     })
     .then(mealPlanOb => {
       queries.addPlanToDatabase(mealPlanOb);
+      return mealPlanOb;
     });
 };
