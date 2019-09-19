@@ -4,15 +4,17 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
   margin: 2em;
-  border: solid black 2px;
-  border-radius: 20%;
+  background-color: #f2edeb;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  border-radius: 1em;
   padding-bottom: 1em;
+  padding-left: 1em;
 }
 
 .recipe-image__newplan{
   position: relative;
-  max-width: 100px;
-  border-radius: 20%;
+  max-width: 6em;
+  border-radius: 1em;
   grid-column: 1/span 2;
   grid-row: 2/span 2;
   align-self: center;
@@ -44,11 +46,22 @@
   grid-column: 3/span 3;
   grid-row: 4/span 1;
   width: 10em;
+  height: 4em;
   align-self: center;
   justify-self: center;
 
 }
 
+
+.btn__back__new-plan{
+  height: 4em;
+  width:10em;
+}
+
+.btn__next__new-plan{
+  height: 4em;
+  width:10em;
+}
 .container__next-back-buttons{
   display: flex;
   justify-content: space-around;
@@ -57,5 +70,6 @@
 .form__newplan__load-more{
   display: flex;
   justify-content: center;
-  padding-top: 1em;
+  padding-top: 2em;
+  padding-bottom:2em;
 }
