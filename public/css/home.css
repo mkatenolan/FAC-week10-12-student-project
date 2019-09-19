@@ -2,31 +2,41 @@
 
 body {
   margin: 0;
-  font-family: 'Overlock', cursive;
-
+  font-family: 'Nobile', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .btn {
-  background-color:#814256;
+  font-family: 'Nobile', sans-serif;
+  cursor:pointer;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  background-color:#F26157;
   width: 10em;
-  height: 5em;
-  border-radius: 20%;
+  height: 3em;
+  border-radius: 1em;
   border-style: none;
   color: #F7F4F3;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
 
 }
+
 
 .header {
-  margin-top:0;
+  font-family: "Nobile", sans-serif;
+  margin-top: 0;
   padding-top: 1em;
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: bold;
   text-align: center;
-
-
 }
 
-.background{
+.background {
   height: 20vh;
   background-image: url("../assets/food-background.jpeg");
   background-size: 100%;
@@ -38,10 +48,8 @@ body {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(8, 1fr);
   height: 75vh;
-  background-color: #F7F4F3;
+  background-color: #f7f4f3;
   padding-bottom: 2em;
-
-
 }
 /* .onboarding__logo{
   grid-column: 2/span 4;
@@ -49,14 +57,14 @@ body {
   width: 80%;
 } */
 
-.header__onboarding{
+.header__onboarding {
   grid-column: 3 / span 2;
   grid-row: 1 / span 1;
   justify-self: center;
   font-size: 2.5em;
 }
 
-.paragraph__onboarding__one{
+.paragraph__onboarding__one {
   justify-self: right;
   grid-column: 1 / span 2;
   grid-row: 2 / span 1;
@@ -67,22 +75,32 @@ body {
   grid-row: 4 / span 1;
 }
 
-.paragraph__onboarding__three{
+.paragraph__onboarding__three {
   grid-column: 3 / span 2;
   grid-row: 6 / span 1;
   justify-self: center;
 }
 
-
-.form__onboarding__form{
+.form__onboarding__form {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   grid-column: 2 / span 4;
   grid-row: 8 / span 1;
 }
 
 
+.btn__onboarding__view-plans{
+  margin: 0.5em;
+  font-size: 0.8em;
+  width: 15em;
+}
+
+.btn__onboarding__new-plan{
+    margin: 0.5em;
+    font-size: 0.8em;
+    width: 15em;
+}
 
 /* all meal plans page */
 

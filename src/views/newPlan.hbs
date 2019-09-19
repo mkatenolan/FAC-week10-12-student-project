@@ -7,8 +7,10 @@
   {{#each recipes}}
   <div class="container__pick-recipes">
   <h2 class="recipe-title__newplan">{{this.recipeName}}</h2>
-  <span class="recipe-time__newplan">T {{this.cookingTime}}</span>
-  <span class="recipe-health__newplan">H{{this.healthScore}}</span>
+  <img class="image__timer-icon" src="/assets/stopwatch.png">
+  <span class="recipe-time__newplan">{{this.cookingTime}}</span>
+  <img class="image__health-icon" src="/assets/heart.png">
+  <span class="recipe-health__newplan">{{this.healthScore}}</span>
   <img class="recipe-image__newplan" src="{{this.imageUrl}}">
   <input class="btn btn__newplan-select" type="submit" value="Select" id="{{this.id}}">
 </div>
@@ -26,7 +28,7 @@
 
 
   {{>loadMore}}
-{{!-- 
+{{!--
   {{>counter}} --}}
 
 
