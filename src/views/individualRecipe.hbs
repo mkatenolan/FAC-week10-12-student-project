@@ -1,20 +1,25 @@
+<section class="background background__individual-recipe"></section>
 <section class="individual-recipe__section">
 
   {{#each recipeOverview}}
-  <h1>{{this.recipe_name}}</h1>
-  <span>{{this.health_score}}</span>
-  <span>{{this.cooking_time}}</span>
+  <h1 class="header header__individual-recipe">{{this.recipe_name}}</h1>
+  <div class="headers__container__individual-recipe">
+  <span class="health__individual-recipe"> Health:{{this.health_score}}</span>
+  <span class="time__individual-recipe">Time: {{this.cooking_time}}</span>
+</div>
 {{/each}}
- <ul>
+<h2 class="header__ingredients__individual-recipe">Ingredients</h2>
+ <ul class="ingredients__list__individual-recipe">
 
     {{#each ingredients}}
-    <li>{{this.ingredient_name}}</li>
+    <li class="ingredient__list-item">{{this.ingredient_name}}</li>
     {{/each}}
 
   </ul>
 
+<h2 class="header__instructions__individual-recipe"> Steps </h2> 
 {{#each recipeOverview}}
-  <p>{{this.instructions}}</p>
+  <p class="instructions__individual-recipe">{{this.instructions}}</p>
 {{/each}}
 
 </section>
