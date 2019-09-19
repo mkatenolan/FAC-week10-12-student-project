@@ -1,3 +1,4 @@
 module.exports = {
-  getRandomRecipes: require('./getRandomRecipes')
+  getRandomRecipes: require("./getRandomRecipes"),
+  splitIngredients: require("./splitIngredients")
 };

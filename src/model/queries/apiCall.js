@@ -1,10 +1,10 @@
-// const recipeUrl = "https://api.spoonacular.com/recipes/random?number=5&apiKey=fa31546b9db54de4ac0d528cc21fb947";
-
 const fetch = require("node-fetch");
 const apiKey = "a565bdef05084ea48e7946a141f910c7";
 // f7a2ad99effc4441a00ad3cad3d7e8e6
 // dfc52b1bc87a4054b99d6655d10c4206
 // a565bdef05084ea48e7946a141f910c7
+// fa31546b9db54de4ac0d528cc21fb947
+// dfc52b1bc87a4054b99d6655d10c4206
 // ac1e1c1767144e209bd7a0c6b23e1fbd
 // fa31546b9db54de4ac0d528cc21fb947
 // c537cbd90c1149d38dc9a8b908755414
@@ -73,8 +73,8 @@ const getSimilarsApi = arr => {
         fiveMore[i] = {};
         fiveMore[i].id = data[i].id;
         fiveMore[i].recipeName = data[i].title;
-        // fiveMore[i].cookingTime = data[i].cookingMinutes;
-        // fiveMore[i].healthScore = data[i].healthScore;
+        //fiveMore[i].cookingTime = data[i].cookingMinutes;
+        //fiveMore[i].healthScore = data[i].healthScore;
         fiveMore[i].imageUrl = data[i].image;
       }
       //console.log({ fiveMore });
