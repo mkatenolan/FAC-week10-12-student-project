@@ -113,10 +113,42 @@ exports.individualRecipe = (req, res) => {
 // route to make a db call for shopping list page
 
 exports.shoppingList = (req, res) => {
+  let ingredientsArray = [];
+  let ingredientsObject = {};
+  let uniqueIngredients = [];
+  let duplicateIngredients = [];
   queries
     .getShoppingList(req.params.id)
     .then(result => {
-      res.render("shoppingList", { ingredients: result.rows });
+      result.rows.forEach(e => {
+        ingredientsArray.push(e.ingredient_name);
+      });
+      return ingredientsArray;
+    })
+    .then(ingredientsArray => {
+      ingredientsArray.forEach(e => {
+        if (Object.keys(ingredientsObject).includes(e)) {
+          ingredientsObject[e] = true;
+        } else {
+          ingredientsObject[e] = false;
+        }
+      });
+      return ingredientsObject;
+    })
+    .then(ingredientsObject => {
+      Object.entries(ingredientsObject).forEach((e, i) => {
+        if (e.includes(true)) {
+          duplicateIngredients.push(e[0]);
+        } else {
+          uniqueIngredients.push(e[0]);
+        }
+      });
+    })
+    .then(ingredientsObject => {
+      res.render("shoppingList", {
+        uniqueIngredients: uniqueIngredients,
+        duplicateIngredients: duplicateIngredients
+      });
     })
     .catch(err => {
       res.render("error", {
@@ -198,5 +230,6 @@ exports.confirmPlan = (req, data) => {
     })
     .then(mealPlanOb => {
       queries.addPlanToDatabase(mealPlanOb);
+      return mealPlanOb;
     });
 };

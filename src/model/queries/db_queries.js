@@ -60,17 +60,17 @@ const getSimilarRecipes = (firstPick, secondPick) => {
 
 // Query for adding a new plan - title and days - into 'plans' table
 
-const addNewPlan = (id, planName, planDays) => {
+const addNewPlan = (planName, planDays) => {
   return connection.query(
-    `INSERT INTO plans (id, plan_name, plan_days) VALUES (${id}, '${planName}', ${planDays});`
+    `INSERT INTO plans (plan_name, plan_days) VALUES ('${planName}', ${planDays});`
   );
 };
 
 // Query for adding a recipe to a plan in junction table
 
-const addRecipeToPlan = (planId, recipeId) => {
+const addRecipeToPlan = (planName, recipeId) => {
   return connection.query(
-    `INSERT INTO junction_plans_recipes (plan_id, recipe_id) VALUES (${planId}, ${recipeId})`
+    `INSERT INTO junction_plans_recipes (plan_id, recipe_id) VALUES ((SELECT id FROM plans WHERE plan_name = '${planName}'), ${recipeId})`
   );
 };
 
@@ -93,21 +93,34 @@ const addIngredientToRecipe = (recipeId, ingredientName) => {
   );
 };
 
-const addPlanToDatabase = mealPlanOb => {
+let ingredient = "black pepper";
+
+const addPlanToDatabase = async mealPlanOb => {
   let planDaysCounter = mealPlanOb.plan_days;
   let x = 0;
-  console.log(typeof addIngredients);
+
+  addNewPlan(mealPlanOb.plan_name, mealPlanOb.plan_days);
   while (x < planDaysCounter) {
     mealPlanOb[x].extendedIngredients.forEach(ingredient => {
-      addIngredients(ingredient.name);
+      addIngredients(ingredient.name)
+        .then(addIngredientToRecipe(mealPlanOb[x].id, ingredient.name))
+        .catch(err => {
+          console.log(err);
+        });
     });
-    addRecipe(mealPlanOb[x]);
+
+    let p1 = addRecipe(mealPlanOb[x]);
+    let p2 = addRecipeToPlan(mealPlanOb.plan_name, mealPlanOb[x].id);
+
+    Promise.all([p1, p2])
+      .then(console.log)
+      .catch(err => {
+        console.log(err);
+      });
+
     x++;
   }
-  // addNewPlan(id?, mealPlanOb.plan_name, mealPlanOb.plan_days)
 };
-
-
 
 module.exports = {
   getAllPlans,
