@@ -1,22 +1,18 @@
+<section class="background background__uniqueMealPlan"></section>
 <section>
   <div class="headers__unique-meal-plan__container">
     <h1 class="unique-meal-plan__header"> {{header.plan_name}}</h1>
     <h2 class="unique-meal-plan__days"> {{header.plan_days}} day plan</h2>
 
-</div>
     <a class="unique-meal-plan__shopping-list" href="/shopping-list/{{this.id}}"> Shopping List </a>
+</div>
 
-    <form action="/sendEmail" class="form form__unique-meal-plan" method="POST">
-        <label for="email-field">Enter your email and we'll send your meal plan!!</label>
-        <input class="email-input-field" id="email-field" name="email" type="text" placeholder="enter your email">
-        <input type="submit" name="submit" value="Email" class="unique-meal-plan__form__email">
-    </form>
 
     {{#each meal_plan_recipe}}
-    <div class="meal_plan_container">
+<div class="meal_plan_container">
     <img class="recipe-image unique-meal-plan__recipe-image" src="{{this.img}}">
     <h1 class="header header__recipe-title"> {{this.recipe_name}}</h1>
-    <a class="btn__recipe_info" href="/unique-recipe/{{this.recipe_id}}"> I</a>
+    <a class="btn__recipe_info" href="/unique-recipe/{{this.recipe_id}}">I</a>
     <span class="unique-meal-plan__recipe_info">
         Time: {{this.cooking_time}}
         Health score: {{this.health_score}}
@@ -27,10 +23,17 @@
     {{/each}}
 
 
-
-    <form action="/mealplans" class="unique-meal-plan__form">
-        <input type="submit" value="View all meal plans" class="unique-meal-plan__form__back">
-        <input type="submit" value="+" formaction="/newplan" class="unique-meal-plan__form__new-plan">
+    <form action="/sendEmail" class="form form__unique-meal-plan" method="POST">
+        <label for="email-field">Enter your email and we'll send your meal plan!!</label>
+        <input class="email-input-field" id="email-field" name="email" type="text" placeholder="enter your email">
+        <input type="submit" name="submit" value="Email" class="unique-meal-plan__form__email">
     </form>
+
+<div class="form-buttons">
+    <form action="/mealplans" class="unique-meal-plan__form">
+        <input type="submit" value="View all meal plans" class="btn unique-meal-plan__form__back">
+        <input type="submit" value="+" formaction="/newplan" class="btn unique-meal-plan__form__new-plan">
+    </form>
+</div>
 
 </section>
