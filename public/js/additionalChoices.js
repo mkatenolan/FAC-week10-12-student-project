@@ -22,18 +22,17 @@ document.querySelectorAll(".recipe__select").forEach(button => {
       let newString = oldString.replace(`+${button.id}`, "");
       document.cookie = newString;
     } else if (document.cookie.split("+").length > 5) {
-      window.alert("Please select an additional 3 recipes");
+      window.alert("Please select up to three additional recipes");
     } else {
       document.cookie = `${document.cookie}+${button.id}`;
     }
-    console.log("Cookie: ", document.cookie);
+    // console.log("Cookie: ", document.cookie);
   });
 });
 
 document
   .querySelector(".second-choices__save-button")
   .addEventListener("click", e => {
-    console.log(document.cookie.split("+").length);
     if (document.cookie.split("+").length > 6) {
       e.preventDefault();
       window.alert("Please select up to three additional recipes");
