@@ -1,4 +1,4 @@
-const emailForm = document.querySelector(".unique-meal-plan__form");
+const emailForm = document.querySelector(".form__unique-meal-plan");
 const emailButton = document.querySelector(".unique-meal-plan__form__email");
 const emailInput = document.querySelector(".email-input-field");
 const url = window.location.href;

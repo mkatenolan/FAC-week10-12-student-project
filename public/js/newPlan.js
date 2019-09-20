@@ -16,12 +16,12 @@ document.querySelectorAll('.btn__newplan-select').forEach(button => {
       button.value = "Undo";
       button.setAttribute("style", "background-color: white; color: #F26157;");
     }
-    console.log('Cookie: ', document.cookie);
-  })
+    console.log("Cookie: ", document.cookie);
+  });
 });
 
-document.querySelector('.btn__next__new-plan').addEventListener('click', (e) => {
-  if (document.cookie.split('+').length !== 3) {
+document.querySelector(".btn__next__new-plan").addEventListener("click", e => {
+  if (document.cookie.split("+").length !== 3) {
     e.preventDefault();
     window.alert("Please select two recipes");
   }

@@ -1,19 +1,7 @@
 const fetch = require("node-fetch");
-const apiKey = 'c537cbd90c1149d38dc9a8b908755414'
-// a565bdef05084ea48e7946a141f910c7
-// dfc52b1bc87a4054b99d6655d10c4206
-// a565bdef05084ea48e7946a141f910c7
-// f7a2ad99effc4441a00ad3cad3d7e8e6
-// dfc52b1bc87a4054b99d6655d10c4206
-// a565bdef05084ea48e7946a141f910c7
-// fa31546b9db54de4ac0d528cc21fb947
-// dfc52b1bc87a4054b99d6655d10c4206
-// ac1e1c1767144e209bd7a0c6b23e1fbd
-// fa31546b9db54de4ac0d528cc21fb947
-// c537cbd90c1149d38dc9a8b908755414
-// 589362322c514340af0a24e58d162020
-// d569dc840ad042b4944fa81110b80e45
-
+// const apiKey = process.env.API_KEY;
+require("env2")("./.env");
+const apiKey ='7c996292c3c54eee831feb9757f8b191'
 
 const getRecipesApi = () => {
   const recipeUrl = `https://api.spoonacular.com/recipes/random?number=10&apiKey=${apiKey}`;
@@ -22,10 +10,10 @@ const getRecipesApi = () => {
     .then(data => data.json())
     .then(data => {
       let fiveRecipe = {};
-      // if (data.status === 'failure') {
-      //   fiveRecipe[0] = {};
-      //   fiveRecipe[0].recipeName = 'Our API has let us down, sorry';
-      // } else {
+      if (data.status === "failure") {
+        fiveRecipe[0] = {};
+        fiveRecipe[0].recipeName = "Our API has let us down, sorry";
+      } else {
         for (let i = 0; i < data.recipes.length; i++) {
           fiveRecipe[i] = {};
           fiveRecipe[i].id = data.recipes[i].id;
@@ -34,8 +22,7 @@ const getRecipesApi = () => {
           fiveRecipe[i].healthScore = data.recipes[i].healthScore;
           fiveRecipe[i].imageUrl = data.recipes[i].image;
         }
-        console.log({fiveRecipe});
-      // }
+      }
       return fiveRecipe;
     })
     .catch(err => console.log(err));

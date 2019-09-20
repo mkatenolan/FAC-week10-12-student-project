@@ -1,37 +1,35 @@
-<section>
-    <h1 class="shopping-list__header">Shopping List</h1>
+<section class="container__main__shopping-list">
+
+<div class="background background__shoppingList"></div>
+<div class="shopping-list-container">
+    <h1 class="header header__shopping-list">Shopping List</h1>
     <h2 class="shopping-list__title"> {{unique.title}}</h2>
     <h2 class="shopping-list__days"> {{unique-recipe.days}}</h2>
 
 
     <h2 class="shopping-list__duplicate-ingredients">Ingredients you can reuse!</h2>
-    <ul class="shopping-list__unordered-list">
+    <ul class="list shopping-list__unordered-list-duplicate">
         {{#each duplicateIngredients}}
-        <li class="shopping-list__unordered-list__item{{this.ingredient_name}}"> <input type="checkbox">
+        <li class="regular-checkbox"> <input type="checkbox">
             {{this}} </li>
         {{/each}}
     </ul>
 
     <h2 class="shopping-list__unique-ingredients"> Unique Ingredients</h2>
-    <ul class="shopping-list__unordered-list">
+    <ul class="list shopping-list__unordered-list-unique">
         {{#each uniqueIngredients}}
-        <li class="shopping-list__unordered-list__item{{this.ingredient_name}}"> <input type="checkbox">
+        <li class="regular-checkbox"> <input type="checkbox">
             {{this}} </li>
         {{/each}}
     </ul>
 
 
 
-    {{!-- <ul>
-        {{#each unique-recipe.ingredient}}
-        <li> {{ unique-recipe.ingredient }} </li>
-        {{/each}}
-    </ul> --}}
-
-
-    <form class="shopping-list__form" action="/mealplans">
-        <input aria-label="Back to see all recipes" type="submit" value="Back" class="shopping-list__form__back">
+    <form class="form shopping-list__form" action="/mealplans">
+        <input aria-label="Back to see all recipes" type="submit" value="Back" class="btn shopping-list__form__back">
     </form>
 
 
+
+</div>
 </section>

@@ -8,10 +8,10 @@ planForm.addEventListener("submit", e => {
     if (xhr.readyState === 4 && xhr.status === 200) {
     }
   };
-
   xhr.open("POST", "/submitmealplan", true);
   xhr.setRequestHeader("Content-Type", "x-www-form-urlencoded");
   xhr.send(JSON.stringify({ planName: planName.value }));
+  alert(`Your plan ${planName.value} was created!`);
 });
 
 document.querySelectorAll(".recipe__select").forEach(button => {
