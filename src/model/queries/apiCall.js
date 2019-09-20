@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 // const apiKey = process.env.API_KEY;
 require("env2")("./.env");
-const apiKey ='7c996292c3c54eee831feb9757f8b191'
+const apiKey = process.env.FOOD_API_KEY;
 
 const getRecipesApi = () => {
   const recipeUrl = `https://api.spoonacular.com/recipes/random?number=10&apiKey=${apiKey}`;
