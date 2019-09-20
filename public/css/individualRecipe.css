@@ -8,7 +8,7 @@ h2 {
   grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
   grid-row-gap:0;
   height: 100vh;
-  background-color: #f7f4f3;
+  background-color: white;
   padding-bottom: 2em;
 }
 
