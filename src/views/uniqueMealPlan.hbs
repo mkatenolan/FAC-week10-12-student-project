@@ -12,9 +12,9 @@
 <div class="meal_plan_container">
     <img class="recipe-image unique-meal-plan__recipe-image" src="{{this.img}}">
     <h1 class="header__recipe-title"> {{this.recipe_name}}</h1>
-    <a class="btn__recipe_info" href="/unique-recipe/{{this.recipe_id}}">I</a>
+    <a class="btn__recipe_info" href="/unique-recipe/{{this.recipe_id}}"><img src="/assets/info.svg" class="recipe_info_svg"></a>
     <span class="unique-meal-plan__recipe_info">
-        Time: {{this.cooking_time}}
+        <img src="/assets/timer.svg" class="recipe_timer_svg"/> {{this.cooking_time}} 
         Health score: {{this.health_score}}
     </span>
   </div>
