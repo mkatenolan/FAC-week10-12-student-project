@@ -1,6 +1,7 @@
-<section class="background background__individual-recipe"></section>
-<section class="individual-recipe__section">
 
+<section class="individual-recipe__section">
+<div class="background background__individual-recipe"></div>
+<div class="container__main-content__individual-recipe">
   {{#each recipeOverview}}
   <h1 class="header header__individual-recipe">{{this.recipe_name}}</h1>
   <div class="headers__container__individual-recipe">
@@ -21,5 +22,5 @@
 {{#each recipeOverview}}
   <p class="instructions__individual-recipe">{{this.instructions}}</p>
 {{/each}}
-
+</div> 
 </section>

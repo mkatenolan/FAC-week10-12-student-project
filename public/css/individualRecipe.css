@@ -2,10 +2,23 @@ h2 {
   color: #F26157;
 }
 
-
 .individual-recipe__section{
-  background-color: #F7F4F3;
-  padding: 1.2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
+  grid-row-gap:0;
+  height: 100vh;
+  background-color: white;
+  padding-bottom: 2em;
+}
+
+.container__main-content__individual-recipe{
+  padding-bottom: 2em;
+  border-radius:2em 2em 0 0;
+  z-index: 5;
+  grid-column: 1/span 3;
+  grid-row: 2/span 3;
+  background-color: white;
 }
 
 .headers__container__individual-recipe{

@@ -34,7 +34,7 @@ const getRecipesApi = () => {
           fiveRecipe[i].imageUrl = data.recipes[i].image;
         }
         console.log({fiveRecipe});
-      // }
+       }
       return fiveRecipe;
     })
     .catch(err => console.log(err));
