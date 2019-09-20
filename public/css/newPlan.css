@@ -1,22 +1,41 @@
+.newplan__main-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
+  grid-row-gap:0;
+  height: 100vh;
+  background-color: #f7f4f3;
+  padding-bottom: 2em;
+}
+.container__main-content__newplan{
+  border-radius: 2em 2em 0 0;
+  z-index:5;
+  grid-column: 1/span 3;
+  grid-row: 2/span 3;
+  background-color: #f7f4f3;
+}
 .container__pick-recipes{
   height: 30vh;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
   margin: 2em;
-  border: solid black 2px;
-  border-radius: 20%;
+  background-color: #ffb3b347;
+  box-shadow: 1px 2px 4px rgba(242, 97, 87, .5);
+  border-radius: 1em;
   padding-bottom: 1em;
+  padding-left: 1em;
 }
+
 
 .recipe-image__newplan{
   position: relative;
-  max-width: 100px;
-  border-radius: 20%;
+  max-width: 6em;
+  border-radius: 1em;
   grid-column: 1/span 2;
   grid-row: 2/span 2;
   align-self: center;
-  justify-self: center;
+  =-self: center;
 }
 
 .recipe-title__newplan{
@@ -27,28 +46,56 @@
 }
 
 .recipe-time__newplan{
-  grid-column: 5/span 2;
+  grid-column: 6/span 1;
   grid-row: 2/span 2;
   align-self: center;
   justify-self: center;
+  font-size:1.5em;
 }
 
 .recipe-health__newplan{
-  grid-column: 3/ span 2;
+  grid-column: 4/ span 1;
   grid-row: 2/span 2;
   align-self: center;
   justify-self: center;
+  font-size:1.5em;
 }
 
 .btn__newplan-select{
   grid-column: 3/span 3;
   grid-row: 4/span 1;
-  width: 10em;
+  width: 8em;
+  height: 3em;
   align-self: center;
   justify-self: center;
 
 }
 
+.image__timer-icon{
+  max-width: 2em;
+  grid-column: 5/span 1;
+  grid-row: 2/span 2;
+  align-self: center;
+  justify-self: center;
+}
+.image__health-icon{
+  margin-left: 1em;
+  grid-column: 3/ span 1;
+  grid-row: 2/span 2;
+  max-width: 2em;
+  align-self: center;
+  justify-self: center;
+}
+
+.btn__back__new-plan{
+  height:3em;
+  width:8em;
+}
+
+.btn__next__new-plan{
+  height:3em;
+  width:8em;
+}
 .container__next-back-buttons{
   display: flex;
   justify-content: space-around;
@@ -57,5 +104,6 @@
 .form__newplan__load-more{
   display: flex;
   justify-content: center;
-  padding-top: 1em;
+  padding-top: 2em;
+  padding-bottom:2em;
 }

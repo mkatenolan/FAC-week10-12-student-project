@@ -15,19 +15,20 @@
     <a class="btn__recipe_info" href="/unique-recipe/{{this.recipe_id}}"><img src="/assets/info.svg" class="recipe_info_svg"></a>
     <span class="unique-meal-plan__recipe_info">
         <img src="/assets/timer.svg" class="recipe_timer_svg"/> {{this.cooking_time}} 
-        Health score: {{this.health_score}}
+        <img src="/assets/heart.png" class="recipe_health_png" />{{this.health_score}}
     </span>
   </div>
 
     {{individualRecipe}}
     {{/each}}
 
-
+<div class="form form__unique-meal-plan">
     <form action="/sendEmail" class="form form__unique-meal-plan" method="POST">
         <label for="email-field">Enter your email and we'll send your meal plan!!</label>
         <input class="email-input-field" id="email-field" name="email" type="text" placeholder="enter your email">
         <input type="submit" name="submit" value="Email" class="unique-meal-plan__form__email">
     </form>
+</div>
 
 <div class="form-buttons">
     <form action="/mealplans" class="unique-meal-plan__form">
@@ -37,3 +38,5 @@
 </div>
 
 </section>
+
+<script src="/js/uniqueMealPlan.js"></script>
