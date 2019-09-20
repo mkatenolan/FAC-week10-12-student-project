@@ -4,8 +4,8 @@
   {{#each recipeOverview}}
   <h1 class="header header__individual-recipe">{{this.recipe_name}}</h1>
   <div class="headers__container__individual-recipe">
-  <span class="health__individual-recipe"> Health:{{this.health_score}}</span>
-  <span class="time__individual-recipe">Time: {{this.cooking_time}}</span>
+  <span class="health__individual-recipe"> Health score: {{this.health_score}}</span>
+  <span class="time__individual-recipe">Cooking time: {{this.cooking_time}}</span>
 </div>
 {{/each}}
 <h2 class="header__ingredients__individual-recipe">Ingredients</h2>
@@ -17,7 +17,7 @@
 
   </ul>
 
-<h2 class="header__instructions__individual-recipe"> Steps </h2> 
+<h2 class="header__instructions__individual-recipe"> Steps </h2>
 {{#each recipeOverview}}
   <p class="instructions__individual-recipe">{{this.instructions}}</p>
 {{/each}}
