@@ -190,7 +190,7 @@ exports.email = (req, res) => {
   let send_grid = {
     service: "SendGrid",
     auth: {
-      api_key:  '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' //process.env.SEND_GRID_API_KEY
+      api_key: process.env.SEND_GRID
     }
   };
   let mailer = nodemailer.createTransport(sgTransport(send_grid));
