@@ -1,8 +1,9 @@
-<section class="background background__img"></section>
 <section class="container__newplan-additional-main">
+  <div class="background background__img"></div>
+<div class="container__main-content__additional-choices">
+<h1 class="header header__second-choices">Select up to five more recipes </h1>
+{{!-- {{>recipeList}}
 
-  <h1 class="header header__second-choices"> Select up to five more recipes </h1>
-  {{!-- {{>recipeList}}
   {{!-- {{>loadMores}} --}}
 
   {{#each recipes}}
@@ -10,6 +11,7 @@
     <h2 class="recipe__header">{{this.recipeName}}</h2>
     {{!-- <p class="recipe__cooking">Cooking time: {{this.cookingTime}}</p>
   <p class="recipe__health">Health score: {{this.healthScore}}</p> --}}
+
     <img src="{{this.imageUrl}}" class="recipe-image__additional-plan">
     <input type="submit" value="Select" class="btn recipe__select" id="{{this.id}}">
   </div>

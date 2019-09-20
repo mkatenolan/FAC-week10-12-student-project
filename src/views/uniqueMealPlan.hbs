@@ -1,38 +1,47 @@
-<section>
+
+<section class="container__main__unique-plan">
+  <div class="background background__uniqueMealPlan"></div>
+  <div class="container__main-content__uniqueMealPlan">
   <div class="headers__unique-meal-plan__container">
     <h1 class="unique-meal-plan__header"> {{header.plan_name}}</h1>
     <h2 class="unique-meal-plan__days"> {{header.plan_days}} day plan</h2>
 
-</div>
+    <img class="image__shopping-list" src="/assets/trolley-icon.svg">
     <a class="unique-meal-plan__shopping-list" href="/shopping-list/{{this.id}}"> Shopping List </a>
+</div>
 
-    <form action="/sendEmail" class="form form__unique-meal-plan" method="POST">
-        <label for="email-field">Enter your email and we'll send your meal plan!!</label>
-        <input class="email-input-field" id="email-field" name="email" type="text" placeholder="enter your email">
-        <input type="submit" name="submit" value="Email" class="unique-meal-plan__form__email">
-    </form>
 
     {{#each meal_plan_recipe}}
-    <div class="meal_plan_container">
-    <img class="recipe-image unique-meal-plan__recipe-image" src="{{this.img}}">
-    <h1 class="header header__recipe-title"> {{this.recipe_name}}</h1>
-    <a class="btn__recipe_info" href="/unique-recipe/{{this.recipe_id}}"> I</a>
-    <span class="unique-meal-plan__recipe_info">
-        Time: {{this.cooking_time}}
-        Health score: {{this.health_score}}
-    </span>
+<div class="meal_plan_container">
+    <!-- <img class="recipe-image unique-meal-plan__recipe-image" src="{{this.img}}"> -->
+    <h1 class="header__recipe-title"> {{this.recipe_name}}</h1>
+    <!-- <span class="unique-meal-plan__recipe_info"> -->
+        <img src="/assets/timer.svg" class="recipe_timer_svg"/>
+        <span class="cooking__time__unique">{{this.cooking_time}}</span>
+        <img src="/assets/heart.png" class="recipe_health_png"/>
+        <span class="health__score__unique">{{this.health_score}}</span>
+          <a class="btn__recipe_info" href="/unique-recipe/{{this.recipe_id}}"><img src="/assets/info.svg" class="recipe_info_svg"></a>
+    <!-- </span> -->
   </div>
 
     {{individualRecipe}}
     {{/each}}
 
-
-
-    <form action="/mealplans" class="unique-meal-plan__form">
-        <input type="submit" value="View all meal plans" class="unique-meal-plan__form__back">
-        <input type="submit" value="+" formaction="/newplan" class="unique-meal-plan__form__new-plan">
+<div class="form form__unique-meal-plan">
+    <form action="/sendEmail" class="form form__unique-meal-plan" method="POST">
+        <span class="form__text">Enter your email and we'll send your meal plan!!</span>
+        <input class="email-input-field" id="email-field" name="email" type="text" placeholder="enter your email">
+        <input type="submit" name="submit" value="Email" class="btn unique-meal-plan__form__email">
     </form>
+</div>
 
+<div class="form-buttons">
+    <form action="/mealplans" class="unique-meal-plan__form">
+        <input type="submit" value="Meal plans" class="btn unique-meal-plan__form__back">
+        <input type="submit" value="+" formaction="/newplan" class="btn unique-meal-plan__form__new-plan">
+    </form>
+</div>
+</div>
 </section>
 
 <script src="/js/uniqueMealPlan.js"></script>
