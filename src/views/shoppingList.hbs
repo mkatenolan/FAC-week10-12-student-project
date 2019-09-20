@@ -8,7 +8,7 @@
     <h2 class="shopping-list__duplicate-ingredients">Ingredients you can reuse!</h2>
     <ul class="list shopping-list__unordered-list-duplicate">
         {{#each duplicateIngredients}}
-        <li class="regular-checkbox styled-checkbox"> <input type="checkbox">
+        <li class="regular-checkbox"> <input type="checkbox">
             {{this}} </li>
         {{/each}}
     </ul>
@@ -16,18 +16,17 @@
     <h2 class="shopping-list__unique-ingredients"> Unique Ingredients</h2>
     <ul class="list shopping-list__unordered-list-unique">
         {{#each uniqueIngredients}}
-        <li class="regular-checkbox styled-checkbox"> <input type="checkbox">
+        <li class="regular-checkbox"> <input type="checkbox">
             {{this}} </li>
         {{/each}}
     </ul>
 
 
-    <div class="form-form">
-        <form class="form shopping-list__form" action="/mealplans">
-            <input aria-label="Back to see all recipes" type="submit" value="Back"
-                class="btn shopping-list__form__back">
-        </form>
-    </div>
+
+    <form class="form shopping-list__form" action="/mealplans">
+        <input aria-label="Back to see all recipes" type="submit" value="Back" class="btn shopping-list__form__back">
+    </form>
+
 
 
 </section>

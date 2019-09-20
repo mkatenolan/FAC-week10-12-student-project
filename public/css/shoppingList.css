@@ -1,25 +1,28 @@
-/* .shopping-list-container {
-     background-color: #D8D8D8; 
-     display: flex;
-     display:center;
-     width: 70%;
-     height: auto;
-     margin: 1em;
-     border-radius: 20%;
-     padding: 1em;
- } */
+.shopping-list-container {
+  max-width: 90%;
+  height: auto;
+  margin: auto;
+  padding: 1em;
+  position: absolute;
+}
 
 .header__shopping-list {
-  align-items: center;
-  margin-top: 0;
-  padding-top: 0;
-  font-size: 1em;
+  font-size: 2em;
   font-weight: bold;
   color: black;
 }
 
+.shopping-list__unique-ingredients {
+  margin-top: 2em;
+}
+
+.shopping-list__form__back {
+  margin-top: 2em;
+}
+
 .list {
   list-style: none;
+  padding-left: 0;
 }
 
 .regular-checkbox {
@@ -58,16 +61,7 @@
   color: #99a1a7;
 }
 
-.styled-checkbox {
-  padding: 18px;
-}
-
-.styled-checkbox:checked:after {
-  font-size: 28px;
-  left: 6px;
-}
-
-.form-form {
+.shopping-list__form {
   display: flex;
-  align-items: flex-end;
+  justify-content: center;
 }
