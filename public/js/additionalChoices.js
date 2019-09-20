@@ -21,10 +21,14 @@ document.querySelectorAll(".recipe__select").forEach(button => {
       let oldString = document.cookie;
       let newString = oldString.replace(`+${button.id}`, "");
       document.cookie = newString;
+      button.value = "Select";
+      button.setAttribute("style", "background-color: #F26157;");
     } else if (document.cookie.split("+").length > 5) {
       window.alert("Please select up to three additional recipes");
     } else {
       document.cookie = `${document.cookie}+${button.id}`;
+      button.value = "Undo";
+      button.setAttribute("style", "background-color: white; color: #F26157;");
     }
     // console.log("Cookie: ", document.cookie);
   });
