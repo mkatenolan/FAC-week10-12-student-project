@@ -1,19 +1,7 @@
 const fetch = require("node-fetch");
-const apiKey = "a565bdef05084ea48e7946a141f910c7";
-// 'fa31546b9db54de4ac0d528cc21fb947';
-// f7a2ad99effc4441a00ad3cad3d7e8e6'
-// "dfc52b1bc87a4054b99d6655d10c4206"
-// 'dfc52b1bc87a4054b99d6655d10c4206'
-//a565bdef05084ea48e7946a141f910c7
-// 'ac1e1c1767144e209bd7a0c6b23e1fbd'
-//fa31546b9db54de4ac0d528cc21fb947
-//'a565bdef05084ea48e7946a141f910c7'
-//'dfc52b1bc87a4054b99d6655d10c4206'
-//"a565bdef05084ea48e7946a141f910c7";
-// a565bdef05084ea48e7946a141f910c7
-// dfc52b1bc87a4054b99d6655d10c4206
-//ac1e1c1767144e209bd7a0c6b23e1fbd
-// a565bdef05084ea48e7946a141f910c7
+// const apiKey = process.env.API_KEY;
+require("env2")("./.env");
+const apiKey ='7c996292c3c54eee831feb9757f8b191'
 
 const getRecipesApi = () => {
   const recipeUrl = `https://api.spoonacular.com/recipes/random?number=10&apiKey=${apiKey}`;

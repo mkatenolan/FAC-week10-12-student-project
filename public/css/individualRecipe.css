@@ -1,4 +1,4 @@
-h2 {
+.header__ingredients__individual-recipe {
   color: #F26157;
 }
 
@@ -21,13 +21,13 @@ h2 {
   background-color: white;
 }
 
-.headers__container__individual-recipe{
+.headers__container__individual-recipe {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.instructions__individual-recipe{
+.instructions__individual-recipe {
   padding: 1.5em;
   font-size: 0.9em;
 }

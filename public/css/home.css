@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'Nobile', sans-serif;
   font-size: 1em;
-  background-color: #FFFFFF;
+  background-color: #f7f4f3;
 
 }
 
@@ -12,7 +12,7 @@ body {
   font-family: 'Nobile', sans-serif;
   cursor:pointer;
   box-shadow: 1px 2px 4px rgba(242, 97, 87, .5);
-  background-color:#F26157;
+  background-color: #F26157;
   width: 10em;
   height: 3em;
   border-radius: 1em;
@@ -31,11 +31,11 @@ body {
 .header {
   font-family: "Nobile", sans-serif;
   margin-top: 0;
-  padding-top: 1em;
+  padding-top: 0.2em;
   font-size: 2.7em;
   font-weight: bold;
   text-align: center;
-  color: #F26157;
+
 }
 
 .background {
@@ -72,26 +72,42 @@ body {
 }
 
 
-.header__onboarding {
+/* .header__onboarding {
   grid-column: 3 / span 2;
   grid-row: 1 / span 1;
   justify-self: center;
   font-size: 2.5em;
+  text-align: center;
+} */
+
+.header__logo {
+  grid-column: 1 / span 6;
+  grid-row: 1 / span 1;
+  align-self: center;
+  width: 80vw;
+  margin: 0px auto;
 }
 
 .paragraph__onboarding__one {
   justify-self: right;
-  grid-column: 1 / span 2;
+  width: 95vw;
+  margin-top: 20px;
+  margin-top: 20px;
+  grid-column: 1 / span 6;
   grid-row: 2 / span 1;
 }
 
 .paragraph__onboarding__two {
-  grid-column: 5 / span 2;
+  width: 95vw;
+  margin-top: 20px;
+  grid-column: 1 / span 6;
   grid-row: 4 / span 1;
 }
 
 .paragraph__onboarding__three {
-  grid-column: 3 / span 2;
+  width: 95vw;
+  margin-top: 20px;
+  grid-column: 1 / span 6;
   grid-row: 6 / span 1;
   justify-self: center;
 }
@@ -100,21 +116,24 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  grid-column: 2 / span 4;
-  grid-row: 8 / span 1;
+  margin-top: 50px;
+  grid-column: 1 / span 6;
+  grid-row: 8 / span 2;
 }
 
 
 .btn__onboarding__view-plans{
   margin: 0.5em;
   font-size: 0.8em;
-  width: 15em;
+  width: 12em;
+  height: 4em;
 }
 
 .btn__onboarding__new-plan{
     margin: 0.5em;
     font-size: 0.8em;
-    width: 15em;
+    width: 12em;
+    height: 4em;
 }
 
 /* all meal plans page */

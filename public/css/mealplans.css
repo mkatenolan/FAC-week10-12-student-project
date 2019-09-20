@@ -38,10 +38,11 @@
 
 
 .btn__meal-plans__new-plan {
-    width: 5em;
+    width: 6em;
     height: 3.5em;
     font-size: 1em;
     font-weight: bold;
+    margin-right: 1em;
 }
 /* .btn__back__new-plan{
 
@@ -73,8 +74,9 @@
 
 .link__meal-plan{
 
-  text-align: center;
+    text-align: center;
     text-decoration: none;
-    height: 2em;
+    padding-top: 1em;
+    height: 3em;
     width: 8em
 }
