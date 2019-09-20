@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const apiKey = "ac1e1c1767144e209bd7a0c6b23e1fbd";
+const apiKey = "dfc52b1bc87a4054b99d6655d10c4206";
 // 'fa31546b9db54de4ac0d528cc21fb947';
 // f7a2ad99effc4441a00ad3cad3d7e8e6'
 // "dfc52b1bc87a4054b99d6655d10c4206"
@@ -12,6 +12,7 @@ const apiKey = "ac1e1c1767144e209bd7a0c6b23e1fbd";
 //"a565bdef05084ea48e7946a141f910c7";
 // a565bdef05084ea48e7946a141f910c7
 // dfc52b1bc87a4054b99d6655d10c4206
+//ac1e1c1767144e209bd7a0c6b23e1fbd
 // a565bdef05084ea48e7946a141f910c7
 
 const getRecipesApi = () => {
@@ -33,8 +34,7 @@ const getRecipesApi = () => {
           fiveRecipe[i].healthScore = data.recipes[i].healthScore;
           fiveRecipe[i].imageUrl = data.recipes[i].image;
         }
-        console.log({fiveRecipe});
-      // }
+      }
       return fiveRecipe;
     })
     .catch(err => console.log(err));
