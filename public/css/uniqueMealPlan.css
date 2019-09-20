@@ -1,19 +1,24 @@
-.meal_plan_container{
-  display: flex;
-
-}
-
 .headers__unique-meal-plan__container{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction:column;
+  background-color: #ffb3b347;
+  box-shadow: 1px 2px 4px rgba(242, 97, 87, .5);
+  display: flex;
+  height: auto;
+  margin: 3em;
+  border-radius: 1em;
+  padding: 1em;
+  overflow-x: hidden;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
-.unique-meal-plan__header{
-  font-size:3em;
+.header__recipe-title{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  font-size:1.5em;
   margin-bottom: 0;
   font-weight: bold;
+
 }
 
 .unique-meal-plan__days{
@@ -21,6 +26,47 @@
   font-style: italic;
 }
 
-.form__unique-meal-plan{
-  display: block;
+.form-buttons {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
 }
+
+.meal_plan_container {
+
+  background-color: #ffb3b347;
+  box-shadow: 1px 2px 4px rgba(242, 97, 87, .5);
+  display: flex;
+  height: 18vh;
+  margin: 3em;
+  border-radius: 1em;
+  padding: 1em;
+  overflow-x: hidden;
+
+}
+
+.recipe_info_svg {
+  width: 2em;
+  height: 2em;
+  padding: 15px;
+}
+
+.recipe_timer_svg {
+  width: 2em;
+  height: 2em;
+
+}
+
+.recipe_health_png{
+  width: 2em;
+  height: 2em;
+
+}
+
+/* .form__unique-meal-plan {
+  
+
+} */
+
+ 
