@@ -1,4 +1,6 @@
-# Nom Nom
+# FAC-Weeks 10-12 - 1 week design + 2 week build using Express.js, Handlebars & PostgreSQL
+
+![](https://i.imgur.com/8DiFb4A.png)
 
 [![Build Status](https://travis-ci.org/fac-17/NomNom.svg?branch=master)](https://travis-ci.org/fac-17/NomNom)
 
